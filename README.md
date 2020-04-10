@@ -29,8 +29,8 @@ Property `alg` defines which signing algorithm is being used. PDF Generator API 
 Property `typ` defines the type of token and it is always JWT.
 ```
 {
-  \"alg\": \"HS256\",
-  \"typ\": \"JWT\"
+  "alg": "HS256",
+  "typ": "JWT"
 }
 ```
 
@@ -44,9 +44,9 @@ You can also specify the token expiration time (`exp`) which is timestamp in sec
 
 ```
 {
-  \"iss\": \"ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a\",
-  \"sub\": \"demo.example@actualreports.com\",
-  \"exp\": 1586112639
+  "iss": "ad54aaff89ffdfeff178bb8a8f359b29fcb20edb56250b9f584aa2cb0162ed4a",
+  "sub": "demo.example@actualreports.com",
+  "exp": 1586112639
 }
 ```
 
@@ -54,7 +54,7 @@ You can also specify the token expiration time (`exp`) which is timestamp in sec
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
 ```
 HMACSHA256(
-    base64UrlEncode(header) + \".\" +
+    base64UrlEncode(header) + "." +
     base64UrlEncode(payload),
     API_SECRET)
 ```
@@ -105,7 +105,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
     }
   ],
   "require": {
-    "pdfgeneratorapi/php-client": "*@dev"
+    "pdfgeneratorapi/php-client": "master"
   }
 }
 ```
