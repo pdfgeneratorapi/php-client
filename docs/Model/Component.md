@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cls** | **string** | Defines component class/type | [optional] 
+**id** | **string** | Component id | [optional] 
 **width** | **float** | Width in units | [optional] 
 **height** | **float** | Height in units | [optional] 
 **top** | **float** | Position from the page top in units | [optional] 

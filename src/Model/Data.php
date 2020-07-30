@@ -1,6 +1,6 @@
 <?php
 /**
- * Template
+ * Data
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * Template Class Doc Comment
+ * Data Class Doc Comment
  *
  * @category Class
- * @description Template object
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Template implements ModelInterface, ArrayAccess
+class Data implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class Template implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Template';
+    protected static $openAPIModelName = 'Data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +58,7 @@ class Template implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'owner' => 'bool',
-        'modified' => 'string',
-        'tags' => 'string[]'
+        'name' => 'string'
     ];
 
     /**
@@ -72,10 +68,7 @@ class Template implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'owner' => null,
-        'modified' => null,
-        'tags' => null
+        'name' => null
     ];
 
     /**
@@ -106,10 +99,7 @@ class Template implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'owner' => 'owner',
-        'modified' => 'modified',
-        'tags' => 'tags'
+        'name' => 'name'
     ];
 
     /**
@@ -119,10 +109,7 @@ class Template implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'owner' => 'setOwner',
-        'modified' => 'setModified',
-        'tags' => 'setTags'
+        'name' => 'setName'
     ];
 
     /**
@@ -132,10 +119,7 @@ class Template implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'owner' => 'getOwner',
-        'modified' => 'getModified',
-        'tags' => 'getTags'
+        'name' => 'getName'
     ];
 
     /**
@@ -200,9 +184,6 @@ class Template implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
-        $this->container['modified'] = isset($data['modified']) ? $data['modified'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -242,7 +223,7 @@ class Template implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int|null $id Unique identifier
+     * @param int|null $id id
      *
      * @return $this
      */
@@ -266,85 +247,13 @@ class Template implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Template name
+     * @param string|null $name name
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner
-     *
-     * @return bool|null
-     */
-    public function getOwner()
-    {
-        return $this->container['owner'];
-    }
-
-    /**
-     * Sets owner
-     *
-     * @param bool|null $owner Indicates if the workspace is the owner of the template
-     *
-     * @return $this
-     */
-    public function setOwner($owner)
-    {
-        $this->container['owner'] = $owner;
-
-        return $this;
-    }
-
-    /**
-     * Gets modified
-     *
-     * @return string|null
-     */
-    public function getModified()
-    {
-        return $this->container['modified'];
-    }
-
-    /**
-     * Sets modified
-     *
-     * @param string|null $modified Timestamp when the template was modified
-     *
-     * @return $this
-     */
-    public function setModified($modified)
-    {
-        $this->container['modified'] = $modified;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return string[]|null
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param string[]|null $tags A list of tags assigned to a template
-     *
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }

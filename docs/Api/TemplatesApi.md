@@ -386,7 +386,7 @@ This endpoint does not need any parameter.
 
 ## mergeTemplate
 
-> \PDFGeneratorAPI\Model\InlineResponse2004 mergeTemplate($template_id, $body, $name, $format, $output)
+> \PDFGeneratorAPI\Model\InlineResponse2004 mergeTemplate($template_id, $data, $name, $format, $output)
 
 Merge template
 
@@ -410,13 +410,13 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$body = new \stdClass; // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+$data = new \PDFGeneratorAPI\Model\Data(); // \PDFGeneratorAPI\Model\Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 $name = My document; // string | Document name, returned in the meta data.
 $format = pdf; // string | Document format. The zip option will return a ZIP file with PDF files.
 $output = base64; // string | Response format.
 
 try {
-    $result = $apiInstance->mergeTemplate($template_id, $body, $name, $format, $output);
+    $result = $apiInstance->mergeTemplate($template_id, $data, $name, $format, $output);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->mergeTemplate: ', $e->getMessage(), PHP_EOL;
@@ -430,7 +430,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **int**| Template unique identifier |
- **body** | **object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
+ **data** | [**\PDFGeneratorAPI\Model\Data**](../Model/Data.md)| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
  **name** | **string**| Document name, returned in the meta data. | [optional]
  **format** | **string**| Document format. The zip option will return a ZIP file with PDF files. | [optional] [default to &#39;pdf&#39;]
  **output** | **string**| Response format. | [optional] [default to &#39;base64&#39;]
