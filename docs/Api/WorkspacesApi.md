@@ -1,17 +1,18 @@
 # PDFGeneratorAPI\WorkspacesApi
 
-All URIs are relative to *https://us1.pdfgeneratorapi.com/api/v3*
+All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteWorkspace**](WorkspacesApi.md#deleteWorkspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace
-[**getWorkspace**](WorkspacesApi.md#getWorkspace) | **GET** /workspaces/{workspaceId} | Get workspace
+[**deleteWorkspace()**](WorkspacesApi.md#deleteWorkspace) | **DELETE** /workspaces/workspaceId | Delete workspace
+[**getWorkspace()**](WorkspacesApi.md#getWorkspace) | **GET** /workspaces/workspaceId | Get workspace
 
 
+## `deleteWorkspace()`
 
-## deleteWorkspace
-
-> \PDFGeneratorAPI\Model\InlineResponse2002 deleteWorkspace($workspace_id)
+```php
+deleteWorkspace($workspace_id): \PDFGeneratorAPI\Model\InlineResponse2002
+```
 
 Delete workspace
 
@@ -42,11 +43,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->deleteWorkspace: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -63,16 +62,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getWorkspace()`
 
-## getWorkspace
-
-> \PDFGeneratorAPI\Model\InlineResponse2005 getWorkspace($workspace_id)
+```php
+getWorkspace($workspace_id): \PDFGeneratorAPI\Model\InlineResponse2005
+```
 
 Get workspace
 
@@ -103,11 +103,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->getWorkspace: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -124,9 +122,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkspacesApi
+ * DocumentsApi
  * PHP version 7.3
  *
  * @category Class
@@ -40,14 +40,14 @@ use PDFGeneratorAPI\HeaderSelector;
 use PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * WorkspacesApi Class Doc Comment
+ * DocumentsApi Class Doc Comment
  *
  * @category Class
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class WorkspacesApi
+class DocumentsApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,44 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteWorkspace
+     * Operation mergeTemplate
      *
-     * Delete workspace
+     * Generate document
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  int $template_id Template unique identifier (required)
+     * @param  \PDFGeneratorAPI\Model\Data $data Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \PDFGeneratorAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \PDFGeneratorAPI\Model\InlineResponse2002|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500
+     * @return \PDFGeneratorAPI\Model\InlineResponse2004|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500
      */
-    public function deleteWorkspace($workspace_id)
+    public function mergeTemplate($template_id, $data, $name = null, $format = 'pdf', $output = 'base64')
     {
-        list($response) = $this->deleteWorkspaceWithHttpInfo($workspace_id);
+        list($response) = $this->mergeTemplateWithHttpInfo($template_id, $data, $name, $format, $output);
         return $response;
     }
 
     /**
-     * Operation deleteWorkspaceWithHttpInfo
+     * Operation mergeTemplateWithHttpInfo
      *
-     * Delete workspace
+     * Generate document
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  int $template_id Template unique identifier (required)
+     * @param  \PDFGeneratorAPI\Model\Data $data Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \PDFGeneratorAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \PDFGeneratorAPI\Model\InlineResponse2002|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PDFGeneratorAPI\Model\InlineResponse2004|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWorkspaceWithHttpInfo($workspace_id)
+    public function mergeTemplateWithHttpInfo($template_id, $data, $name = null, $format = 'pdf', $output = 'base64')
     {
-        $request = $this->deleteWorkspaceRequest($workspace_id);
+        $request = $this->mergeTemplateRequest($template_id, $data, $name, $format, $output);
 
         try {
             $options = $this->createHttpClientOption();
@@ -177,14 +185,14 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\PDFGeneratorAPI\Model\InlineResponse2002' === '\SplFileObject') {
+                    if ('\PDFGeneratorAPI\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\PDFGeneratorAPI\Model\InlineResponse2002', []),
+                        ObjectSerializer::deserialize($content, '\PDFGeneratorAPI\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -250,7 +258,7 @@ class WorkspacesApi
                     ];
             }
 
-            $returnType = '\PDFGeneratorAPI\Model\InlineResponse2002';
+            $returnType = '\PDFGeneratorAPI\Model\InlineResponse2004';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -268,7 +276,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PDFGeneratorAPI\Model\InlineResponse2002',
+                        '\PDFGeneratorAPI\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -319,18 +327,22 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteWorkspaceAsync
+     * Operation mergeTemplateAsync
      *
-     * Delete workspace
+     * Generate document
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  int $template_id Template unique identifier (required)
+     * @param  \PDFGeneratorAPI\Model\Data $data Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWorkspaceAsync($workspace_id)
+    public function mergeTemplateAsync($template_id, $data, $name = null, $format = 'pdf', $output = 'base64')
     {
-        return $this->deleteWorkspaceAsyncWithHttpInfo($workspace_id)
+        return $this->mergeTemplateAsyncWithHttpInfo($template_id, $data, $name, $format, $output)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,19 +351,23 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteWorkspaceAsyncWithHttpInfo
+     * Operation mergeTemplateAsyncWithHttpInfo
      *
-     * Delete workspace
+     * Generate document
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  int $template_id Template unique identifier (required)
+     * @param  \PDFGeneratorAPI\Model\Data $data Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWorkspaceAsyncWithHttpInfo($workspace_id)
+    public function mergeTemplateAsyncWithHttpInfo($template_id, $data, $name = null, $format = 'pdf', $output = 'base64')
     {
-        $returnType = '\PDFGeneratorAPI\Model\InlineResponse2002';
-        $request = $this->deleteWorkspaceRequest($workspace_id);
+        $returnType = '\PDFGeneratorAPI\Model\InlineResponse2004';
+        $request = $this->mergeTemplateRequest($template_id, $data, $name, $format, $output);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -387,36 +403,79 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'deleteWorkspace'
+     * Create request for operation 'mergeTemplate'
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  int $template_id Template unique identifier (required)
+     * @param  \PDFGeneratorAPI\Model\Data $data Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWorkspaceRequest($workspace_id)
+    public function mergeTemplateRequest($template_id, $data, $name = null, $format = 'pdf', $output = 'base64')
     {
-        // verify the required parameter 'workspace_id' is set
-        if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
+        // verify the required parameter 'template_id' is set
+        if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling deleteWorkspace'
+                'Missing the required parameter $template_id when calling mergeTemplate'
+            );
+        }
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling mergeTemplate'
             );
         }
 
-        $resourcePath = '/workspaces/workspaceId';
+        $resourcePath = '/templates/templateId/output';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
+        }
+        // query params
+        if ($format !== null) {
+            if('form' === 'form' && is_array($format)) {
+                foreach($format as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['format'] = $format;
+            }
+        }
+        // query params
+        if ($output !== null) {
+            if('form' === 'form' && is_array($output)) {
+                foreach($output as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['output'] = $output;
+            }
+        }
 
 
         // path params
-        if ($workspace_id !== null) {
+        if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workspaceId' . '}',
-                ObjectSerializer::toPathValue($workspace_id),
+                '{' . 'templateId' . '}',
+                ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
@@ -429,12 +488,18 @@ class WorkspacesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -476,7 +541,7 @@ class WorkspacesApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'DELETE',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -484,36 +549,42 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspace
+     * Operation mergeTemplates
      *
-     * Get workspace
+     * Generate document (multiple templates)
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  object[] $request_body Data used to specify templates and data objects which are used to merge the template (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \PDFGeneratorAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \PDFGeneratorAPI\Model\InlineResponse2005|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500
+     * @return \PDFGeneratorAPI\Model\InlineResponse2004|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500
      */
-    public function getWorkspace($workspace_id)
+    public function mergeTemplates($request_body, $name = null, $format = 'pdf', $output = 'base64')
     {
-        list($response) = $this->getWorkspaceWithHttpInfo($workspace_id);
+        list($response) = $this->mergeTemplatesWithHttpInfo($request_body, $name, $format, $output);
         return $response;
     }
 
     /**
-     * Operation getWorkspaceWithHttpInfo
+     * Operation mergeTemplatesWithHttpInfo
      *
-     * Get workspace
+     * Generate document (multiple templates)
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  object[] $request_body Data used to specify templates and data objects which are used to merge the template (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \PDFGeneratorAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \PDFGeneratorAPI\Model\InlineResponse2005|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PDFGeneratorAPI\Model\InlineResponse2004|\PDFGeneratorAPI\Model\InlineResponse401|\PDFGeneratorAPI\Model\InlineResponse403|\PDFGeneratorAPI\Model\InlineResponse404|\PDFGeneratorAPI\Model\InlineResponse422|\PDFGeneratorAPI\Model\InlineResponse500, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkspaceWithHttpInfo($workspace_id)
+    public function mergeTemplatesWithHttpInfo($request_body, $name = null, $format = 'pdf', $output = 'base64')
     {
-        $request = $this->getWorkspaceRequest($workspace_id);
+        $request = $this->mergeTemplatesRequest($request_body, $name, $format, $output);
 
         try {
             $options = $this->createHttpClientOption();
@@ -545,14 +616,14 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\PDFGeneratorAPI\Model\InlineResponse2005' === '\SplFileObject') {
+                    if ('\PDFGeneratorAPI\Model\InlineResponse2004' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\PDFGeneratorAPI\Model\InlineResponse2005', []),
+                        ObjectSerializer::deserialize($content, '\PDFGeneratorAPI\Model\InlineResponse2004', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -618,7 +689,7 @@ class WorkspacesApi
                     ];
             }
 
-            $returnType = '\PDFGeneratorAPI\Model\InlineResponse2005';
+            $returnType = '\PDFGeneratorAPI\Model\InlineResponse2004';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -636,7 +707,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PDFGeneratorAPI\Model\InlineResponse2005',
+                        '\PDFGeneratorAPI\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -687,18 +758,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspaceAsync
+     * Operation mergeTemplatesAsync
      *
-     * Get workspace
+     * Generate document (multiple templates)
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  object[] $request_body Data used to specify templates and data objects which are used to merge the template (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkspaceAsync($workspace_id)
+    public function mergeTemplatesAsync($request_body, $name = null, $format = 'pdf', $output = 'base64')
     {
-        return $this->getWorkspaceAsyncWithHttpInfo($workspace_id)
+        return $this->mergeTemplatesAsyncWithHttpInfo($request_body, $name, $format, $output)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -707,19 +781,22 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspaceAsyncWithHttpInfo
+     * Operation mergeTemplatesAsyncWithHttpInfo
      *
-     * Get workspace
+     * Generate document (multiple templates)
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  object[] $request_body Data used to specify templates and data objects which are used to merge the template (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkspaceAsyncWithHttpInfo($workspace_id)
+    public function mergeTemplatesAsyncWithHttpInfo($request_body, $name = null, $format = 'pdf', $output = 'base64')
     {
-        $returnType = '\PDFGeneratorAPI\Model\InlineResponse2005';
-        $request = $this->getWorkspaceRequest($workspace_id);
+        $returnType = '\PDFGeneratorAPI\Model\InlineResponse2004';
+        $request = $this->mergeTemplatesRequest($request_body, $name, $format, $output);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -755,39 +832,67 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'getWorkspace'
+     * Create request for operation 'mergeTemplates'
      *
-     * @param  string $workspace_id Workspace identifier (required)
+     * @param  object[] $request_body Data used to specify templates and data objects which are used to merge the template (required)
+     * @param  string $name Document name, returned in the meta data. (optional)
+     * @param  string $format Document format. The zip option will return a ZIP file with PDF files. (optional, default to 'pdf')
+     * @param  string $output Response format. With the url option, the document is stored for 30 days and automatically deleted. (optional, default to 'base64')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkspaceRequest($workspace_id)
+    public function mergeTemplatesRequest($request_body, $name = null, $format = 'pdf', $output = 'base64')
     {
-        // verify the required parameter 'workspace_id' is set
-        if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling getWorkspace'
+                'Missing the required parameter $request_body when calling mergeTemplates'
             );
         }
 
-        $resourcePath = '/workspaces/workspaceId';
+        $resourcePath = '/templates/output';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-
-
-        // path params
-        if ($workspace_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'workspaceId' . '}',
-                ObjectSerializer::toPathValue($workspace_id),
-                $resourcePath
-            );
+        // query params
+        if ($name !== null) {
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
         }
+        // query params
+        if ($format !== null) {
+            if('form' === 'form' && is_array($format)) {
+                foreach($format as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['format'] = $format;
+            }
+        }
+        // query params
+        if ($output !== null) {
+            if('form' === 'form' && is_array($output)) {
+                foreach($output as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['output'] = $output;
+            }
+        }
+
+
 
 
         if ($multipart) {
@@ -797,12 +902,18 @@ class WorkspacesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($request_body)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($request_body));
+            } else {
+                $httpBody = $request_body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -844,7 +955,7 @@ class WorkspacesApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

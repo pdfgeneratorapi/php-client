@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2002Test
+ * TemplateDefinitionLayoutTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace PDFGeneratorAPI\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InlineResponse2002Test Class Doc Comment
+ * TemplateDefinitionLayoutTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2002
+ * @description Defines template layout (e.g page format, margins).
  * @package     PDFGeneratorAPI
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class InlineResponse2002Test extends TestCase
+class TemplateDefinitionLayoutTest extends TestCase
 {
 
     /**
@@ -72,18 +72,90 @@ class InlineResponse2002Test extends TestCase
     }
 
     /**
-     * Test "InlineResponse2002"
+     * Test "TemplateDefinitionLayout"
      */
-    public function testInlineResponse2002()
+    public function testTemplateDefinitionLayout()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "response"
+     * Test attribute "format"
      */
-    public function testPropertyResponse()
+    public function testPropertyFormat()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "width"
+     */
+    public function testPropertyWidth()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "height"
+     */
+    public function testPropertyHeight()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "unit"
+     */
+    public function testPropertyUnit()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "orientation"
+     */
+    public function testPropertyOrientation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rotation"
+     */
+    public function testPropertyRotation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "margins"
+     */
+    public function testPropertyMargins()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "repeat_layout"
+     */
+    public function testPropertyRepeatLayout()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "empty_labels"
+     */
+    public function testPropertyEmptyLabels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

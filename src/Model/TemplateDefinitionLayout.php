@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse422
+ * TemplateDefinitionLayout
  *
  * PHP version 7.3
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * InlineResponse422 Class Doc Comment
+ * TemplateDefinitionLayout Class Doc Comment
  *
  * @category Class
+ * @description Defines template layout (e.g page format, margins).
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \PDFGeneratorAPI\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateDefinitionLayout implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_422';
+    protected static $openAPIModelName = 'TemplateDefinition_layout';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +61,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => 'string',
-        'status' => 'int'
+        'format' => 'string',
+        'width' => 'float',
+        'height' => 'float',
+        'unit' => 'string',
+        'orientation' => 'string',
+        'rotation' => 'int',
+        'margins' => '\PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutMargins',
+        'repeat_layout' => '\PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutRepeatLayout',
+        'empty_labels' => 'int'
     ];
 
     /**
@@ -72,8 +80,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'status' => null
+        'format' => null,
+        'width' => null,
+        'height' => null,
+        'unit' => null,
+        'orientation' => null,
+        'rotation' => null,
+        'margins' => null,
+        'repeat_layout' => null,
+        'empty_labels' => null
     ];
 
     /**
@@ -103,8 +118,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'status' => 'status'
+        'format' => 'format',
+        'width' => 'width',
+        'height' => 'height',
+        'unit' => 'unit',
+        'orientation' => 'orientation',
+        'rotation' => 'rotation',
+        'margins' => 'margins',
+        'repeat_layout' => 'repeatLayout',
+        'empty_labels' => 'emptyLabels'
     ];
 
     /**
@@ -113,8 +135,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'status' => 'setStatus'
+        'format' => 'setFormat',
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'unit' => 'setUnit',
+        'orientation' => 'setOrientation',
+        'rotation' => 'setRotation',
+        'margins' => 'setMargins',
+        'repeat_layout' => 'setRepeatLayout',
+        'empty_labels' => 'setEmptyLabels'
     ];
 
     /**
@@ -123,8 +152,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'status' => 'getStatus'
+        'format' => 'getFormat',
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'unit' => 'getUnit',
+        'orientation' => 'getOrientation',
+        'rotation' => 'getRotation',
+        'margins' => 'getMargins',
+        'repeat_layout' => 'getRepeatLayout',
+        'empty_labels' => 'getEmptyLabels'
     ];
 
     /**
@@ -168,23 +204,70 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
-    const ERROR_UNABLE_TO_PARSE_JSON_PLEASE_CHECK_FORMATTING = 'Unable to parse JSON, please check formatting';
-    const ERROR_REQUIRED_PARAMETER_MISSING = 'Required parameter missing';
-    const ERROR_REQUIRED_PARAMETER_MISSING_TEMPLATE_DEFINITION_NOT_DEFINED = 'Required parameter missing: template definition not defined';
-    const ERROR_REQUIRED_PARAMETER_MISSING_TEMPLATE_NOT_DEFINED = 'Required parameter missing: template not defined';
+    const FORMAT_A4 = 'A4';
+    const FORMAT_LETTER = 'letter';
+    const FORMAT_CUSTOM = 'custom';
+    const UNIT_CM = 'cm';
+    const UNIT_IN = 'in';
+    const ORIENTATION_PORTRAIT = 'portrait';
+    const ORIENTATION_LANDSCAPE = 'landscape';
+    const ROTATION_0 = 0;
+    const ROTATION_90 = 90;
+    const ROTATION_180 = 180;
+    const ROTATION_270 = 270;
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getErrorAllowableValues()
+    public function getFormatAllowableValues()
     {
         return [
-            self::ERROR_UNABLE_TO_PARSE_JSON_PLEASE_CHECK_FORMATTING,
-            self::ERROR_REQUIRED_PARAMETER_MISSING,
-            self::ERROR_REQUIRED_PARAMETER_MISSING_TEMPLATE_DEFINITION_NOT_DEFINED,
-            self::ERROR_REQUIRED_PARAMETER_MISSING_TEMPLATE_NOT_DEFINED,
+            self::FORMAT_A4,
+            self::FORMAT_LETTER,
+            self::FORMAT_CUSTOM,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUnitAllowableValues()
+    {
+        return [
+            self::UNIT_CM,
+            self::UNIT_IN,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOrientationAllowableValues()
+    {
+        return [
+            self::ORIENTATION_PORTRAIT,
+            self::ORIENTATION_LANDSCAPE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRotationAllowableValues()
+    {
+        return [
+            self::ROTATION_0,
+            self::ROTATION_90,
+            self::ROTATION_180,
+            self::ROTATION_270,
         ];
     }
 
@@ -203,8 +286,15 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
+        $this->container['format'] = $data['format'] ?? null;
+        $this->container['width'] = $data['width'] ?? null;
+        $this->container['height'] = $data['height'] ?? null;
+        $this->container['unit'] = $data['unit'] ?? null;
+        $this->container['orientation'] = $data['orientation'] ?? null;
+        $this->container['rotation'] = $data['rotation'] ?? null;
+        $this->container['margins'] = $data['margins'] ?? null;
+        $this->container['repeat_layout'] = $data['repeat_layout'] ?? null;
+        $this->container['empty_labels'] = $data['empty_labels'] ?? null;
     }
 
     /**
@@ -216,11 +306,38 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getErrorAllowableValues();
-        if (!is_null($this->container['error']) && !in_array($this->container['error'], $allowedValues, true)) {
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'error', must be one of '%s'",
-                $this->container['error'],
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!is_null($this->container['unit']) && !in_array($this->container['unit'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'unit', must be one of '%s'",
+                $this->container['unit'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!is_null($this->container['orientation']) && !in_array($this->container['orientation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'orientation', must be one of '%s'",
+                $this->container['orientation'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!is_null($this->container['rotation']) && !in_array($this->container['rotation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'rotation', must be one of '%s'",
+                $this->container['rotation'],
                 implode("', '", $allowedValues)
             );
         }
@@ -241,59 +358,257 @@ class InlineResponse422 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets error
+     * Gets format
      *
      * @return string|null
      */
-    public function getError()
+    public function getFormat()
     {
-        return $this->container['error'];
+        return $this->container['format'];
     }
 
     /**
-     * Sets error
+     * Sets format
      *
-     * @param string|null $error Error description
+     * @param string|null $format Defines template page size
      *
      * @return self
      */
-    public function setError($error)
+    public function setFormat($format)
     {
-        $allowedValues = $this->getErrorAllowableValues();
-        if (!is_null($error) && !in_array($error, $allowedValues, true)) {
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($format) && !in_array($format, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'error', must be one of '%s'",
-                    $error,
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['error'] = $error;
+        $this->container['format'] = $format;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets width
      *
-     * @return int|null
+     * @return float|null
      */
-    public function getStatus()
+    public function getWidth()
     {
-        return $this->container['status'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets status
+     * Sets width
      *
-     * @param int|null $status HTTP Error code
+     * @param float|null $width Page width in units
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setWidth($width)
     {
-        $this->container['status'] = $status;
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return float|null
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param float|null $height Page height in units
+     *
+     * @return self
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit
+     *
+     * @return string|null
+     */
+    public function getUnit()
+    {
+        return $this->container['unit'];
+    }
+
+    /**
+     * Sets unit
+     *
+     * @param string|null $unit Measure unit
+     *
+     * @return self
+     */
+    public function setUnit($unit)
+    {
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!is_null($unit) && !in_array($unit, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'unit', must be one of '%s'",
+                    $unit,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets orientation
+     *
+     * @return string|null
+     */
+    public function getOrientation()
+    {
+        return $this->container['orientation'];
+    }
+
+    /**
+     * Sets orientation
+     *
+     * @param string|null $orientation Page orientation
+     *
+     * @return self
+     */
+    public function setOrientation($orientation)
+    {
+        $allowedValues = $this->getOrientationAllowableValues();
+        if (!is_null($orientation) && !in_array($orientation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'orientation', must be one of '%s'",
+                    $orientation,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['orientation'] = $orientation;
+
+        return $this;
+    }
+
+    /**
+     * Gets rotation
+     *
+     * @return int|null
+     */
+    public function getRotation()
+    {
+        return $this->container['rotation'];
+    }
+
+    /**
+     * Sets rotation
+     *
+     * @param int|null $rotation Page rotation in degrees
+     *
+     * @return self
+     */
+    public function setRotation($rotation)
+    {
+        $allowedValues = $this->getRotationAllowableValues();
+        if (!is_null($rotation) && !in_array($rotation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'rotation', must be one of '%s'",
+                    $rotation,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['rotation'] = $rotation;
+
+        return $this;
+    }
+
+    /**
+     * Gets margins
+     *
+     * @return \PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutMargins|null
+     */
+    public function getMargins()
+    {
+        return $this->container['margins'];
+    }
+
+    /**
+     * Sets margins
+     *
+     * @param \PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutMargins|null $margins margins
+     *
+     * @return self
+     */
+    public function setMargins($margins)
+    {
+        $this->container['margins'] = $margins;
+
+        return $this;
+    }
+
+    /**
+     * Gets repeat_layout
+     *
+     * @return \PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutRepeatLayout|null
+     */
+    public function getRepeatLayout()
+    {
+        return $this->container['repeat_layout'];
+    }
+
+    /**
+     * Sets repeat_layout
+     *
+     * @param \PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutRepeatLayout|null $repeat_layout repeat_layout
+     *
+     * @return self
+     */
+    public function setRepeatLayout($repeat_layout)
+    {
+        $this->container['repeat_layout'] = $repeat_layout;
+
+        return $this;
+    }
+
+    /**
+     * Gets empty_labels
+     *
+     * @return int|null
+     */
+    public function getEmptyLabels()
+    {
+        return $this->container['empty_labels'];
+    }
+
+    /**
+     * Sets empty_labels
+     *
+     * @param int|null $empty_labels Defines how many pages or labels should be empty
+     *
+     * @return self
+     */
+    public function setEmptyLabels($empty_labels)
+    {
+        $this->container['empty_labels'] = $empty_labels;
 
         return $this;
     }
