@@ -429,7 +429,7 @@ class DocumentsApi
             );
         }
 
-        $resourcePath = '/templates/templateId/output';
+        $resourcePath = '/templates/{templateId}/output';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

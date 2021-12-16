@@ -4,7 +4,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mergeTemplate()**](DocumentsApi.md#mergeTemplate) | **POST** /templates/templateId/output | Generate document
+[**mergeTemplate()**](DocumentsApi.md#mergeTemplate) | **POST** /templates/{templateId}/output | Generate document
 [**mergeTemplates()**](DocumentsApi.md#mergeTemplates) | **POST** /templates/output | Generate document (multiple templates)
 
 
@@ -84,7 +84,7 @@ mergeTemplates($request_body, $name, $format, $output): \PDFGeneratorAPI\Model\I
 
 Generate document (multiple templates)
 
-Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
 
 ### Example
 

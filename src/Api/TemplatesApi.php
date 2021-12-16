@@ -408,7 +408,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/templates/templateId/copy';
+        $resourcePath = '/templates/{templateId}/copy';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1153,7 +1153,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/templates/templateId';
+        $resourcePath = '/templates/{templateId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1537,7 +1537,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/templates/templateId/editor';
+        $resourcePath = '/templates/{templateId}/editor';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1922,7 +1922,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/templates/templateId';
+        $resourcePath = '/templates/{templateId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2650,7 +2650,7 @@ class TemplatesApi
             );
         }
 
-        $resourcePath = '/templates/templateId';
+        $resourcePath = '/templates/{templateId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

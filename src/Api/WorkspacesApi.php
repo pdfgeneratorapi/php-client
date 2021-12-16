@@ -403,7 +403,7 @@ class WorkspacesApi
             );
         }
 
-        $resourcePath = '/workspaces/workspaceId';
+        $resourcePath = '/workspaces/{workspaceId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -771,7 +771,7 @@ class WorkspacesApi
             );
         }
 
-        $resourcePath = '/workspaces/workspaceId';
+        $resourcePath = '/workspaces/{workspaceId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -172,10 +172,10 @@ class InlineResponse401 implements ModelInterface, ArrayAccess, \JsonSerializabl
     const ERROR_FAILED_SIGNATURE_OR_SECRET_MISSING = 'Authentication failed: signature or secret missing';
     const ERROR_FAILED_WORKSPACE_MISSING = 'Authentication failed: workspace missing';
     const ERROR_FAILED_KEY_MISSING = 'Authentication failed: key missing';
-    const ERROR_FAILED_PROPERTY_ISS__ISSUER_MISSING_IN_JWT = 'Authentication failed: property 'iss' (issuer) missing in JWT';
-    const ERROR_FAILED_PROPERTY_SUB__SUBJECT_MISSING_IN_JWT = 'Authentication failed: property 'sub' (subject) missing in JWT';
-    const ERROR_FAILED_PROPERTY_EXP__EXPIRATION_TIME_MISSING_IN_JWT = 'Authentication failed: property 'exp' (expiration time) missing in JWT';
-    const ERROR_FAILED_INVALID_ISS__ISSUER = 'Authentication failed: invalid 'iss' (issuer)';
+    const ERROR_FAILED_PROPERTY_ISS__ISSUER_MISSING_IN_JWT = 'Authentication failed: property iss (issuer) missing in JWT';
+    const ERROR_FAILED_PROPERTY_SUB__SUBJECT_MISSING_IN_JWT = 'Authentication failed: property sub (subject) missing in JWT';
+    const ERROR_FAILED_PROPERTY_EXP__EXPIRATION_TIME_MISSING_IN_JWT = 'Authentication failed: property exp (expiration time) missing in JWT';
+    const ERROR_FAILED_INVALID_ISS__ISSUER = 'Authentication failed: invalid iss (issuer)';
     const ERROR_FAILED_INCORRECT_SIGNATURE = 'Authentication failed: incorrect signature';
     const ERROR_FAILED = 'Authentication failed';
 
