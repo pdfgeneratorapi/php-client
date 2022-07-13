@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `mergeTemplate()`
 
 ```php
-mergeTemplate($template_id, $data, $name, $format, $output): \PDFGeneratorAPI\Model\InlineResponse2004
+mergeTemplate($template_id, $body, $name, $format, $output): \PDFGeneratorAPI\Model\InlineResponse2004
 ```
 
 Generate document
@@ -36,13 +36,13 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$data = new \PDFGeneratorAPI\Model\Data(); // \PDFGeneratorAPI\Model\Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+$body = new \stdClass; // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 $name = My document; // string | Document name, returned in the meta data.
 $format = pdf; // string | Document format. The zip option will return a ZIP file with PDF files.
-$output = base64; // string | Response format. With the url option, the document is stored for 30 days and automatically deleted.
+$output = base64; // string | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
 
 try {
-    $result = $apiInstance->mergeTemplate($template_id, $data, $name, $format, $output);
+    $result = $apiInstance->mergeTemplate($template_id, $body, $name, $format, $output);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->mergeTemplate: ', $e->getMessage(), PHP_EOL;
@@ -54,10 +54,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_id** | **int**| Template unique identifier |
- **data** | [**\PDFGeneratorAPI\Model\Data**](../Model/Data.md)| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
+ **body** | **object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
  **name** | **string**| Document name, returned in the meta data. | [optional]
  **format** | **string**| Document format. The zip option will return a ZIP file with PDF files. | [optional] [default to &#39;pdf&#39;]
- **output** | **string**| Response format. With the url option, the document is stored for 30 days and automatically deleted. | [optional] [default to &#39;base64&#39;]
+ **output** | **string**| Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] [default to &#39;base64&#39;]
 
 ### Return type
 
@@ -84,7 +84,7 @@ mergeTemplates($request_body, $name, $format, $output): \PDFGeneratorAPI\Model\I
 
 Generate document (multiple templates)
 
-Allows to merge multiple templated with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
+Allows to merge multiple templates with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.
 
 ### Example
 
@@ -106,7 +106,7 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
 $request_body = array(new \stdClass); // object[] | Data used to specify templates and data objects which are used to merge the template
 $name = My document; // string | Document name, returned in the meta data.
 $format = pdf; // string | Document format. The zip option will return a ZIP file with PDF files.
-$output = base64; // string | Response format. With the url option, the document is stored for 30 days and automatically deleted.
+$output = base64; // string | Response format. \"I\" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
 
 try {
     $result = $apiInstance->mergeTemplates($request_body, $name, $format, $output);
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
  **request_body** | [**object[]**](../Model/object.md)| Data used to specify templates and data objects which are used to merge the template |
  **name** | **string**| Document name, returned in the meta data. | [optional]
  **format** | **string**| Document format. The zip option will return a ZIP file with PDF files. | [optional] [default to &#39;pdf&#39;]
- **output** | **string**| Response format. With the url option, the document is stored for 30 days and automatically deleted. | [optional] [default to &#39;base64&#39;]
+ **output** | **string**| Response format. \&quot;I\&quot; is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted. | [optional] [default to &#39;base64&#39;]
 
 ### Return type
 

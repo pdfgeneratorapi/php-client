@@ -148,6 +148,7 @@ We have validated the generated libraries, but let us know if you find any anoma
 | Code   | Description                    |
 |--------|--------------------------------|
 | 401    | Unauthorized                   |
+| 402    | Payment Required               |
 | 403    | Forbidden                      |
 | 404    | Not Found                      |
 | 422    | Unprocessable Entity           |
@@ -163,6 +164,11 @@ We have validated the generated libraries, but let us know if you find any anoma
 | Authentication failed: property 'sub' (subject) missing in JWT          |
 | Authentication failed: property 'exp' (expiration time) missing in JWT  |
 | Authentication failed: incorrect signature                              |
+
+## 402 Payment Required
+| Description                                                             |
+|-------------------------------------------------------------------------|
+| Your account is suspended, please upgrade your account                  |
 
 ## 403 Forbidden
 | Description                                                             |
@@ -247,13 +253,13 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$data = new \PDFGeneratorAPI\Model\Data(); // \PDFGeneratorAPI\Model\Data | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+$body = new \stdClass; // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 $name = My document; // string | Document name, returned in the meta data.
 $format = pdf; // string | Document format. The zip option will return a ZIP file with PDF files.
-$output = base64; // string | Response format. With the url option, the document is stored for 30 days and automatically deleted.
+$output = base64; // string | Response format. "I" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
 
 try {
-    $result = $apiInstance->mergeTemplate($template_id, $data, $name, $format, $output);
+    $result = $apiInstance->mergeTemplate($template_id, $body, $name, $format, $output);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->mergeTemplate: ', $e->getMessage(), PHP_EOL;
@@ -282,7 +288,6 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [Component](docs/Model/Component.md)
-- [Data](docs/Model/Data.md)
 - [InlineResponse200](docs/Model/InlineResponse200.md)
 - [InlineResponse2001](docs/Model/InlineResponse2001.md)
 - [InlineResponse2002](docs/Model/InlineResponse2002.md)
@@ -292,6 +297,7 @@ Class | Method | HTTP request | Description
 - [InlineResponse2004Meta](docs/Model/InlineResponse2004Meta.md)
 - [InlineResponse2005](docs/Model/InlineResponse2005.md)
 - [InlineResponse401](docs/Model/InlineResponse401.md)
+- [InlineResponse402](docs/Model/InlineResponse402.md)
 - [InlineResponse403](docs/Model/InlineResponse403.md)
 - [InlineResponse404](docs/Model/InlineResponse404.md)
 - [InlineResponse422](docs/Model/InlineResponse422.md)

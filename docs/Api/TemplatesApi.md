@@ -203,7 +203,7 @@ getEditorUrl($template_id, $body, $language): \PDFGeneratorAPI\Model\InlineRespo
 
 Open editor
 
-Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application.
+Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application. When using iframe, make sure that your browser allows third-party cookies.
 
 ### Example
 

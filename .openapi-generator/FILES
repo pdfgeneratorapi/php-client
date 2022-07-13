@@ -7,7 +7,6 @@ docs/Api/DocumentsApi.md
 docs/Api/TemplatesApi.md
 docs/Api/WorkspacesApi.md
 docs/Model/Component.md
-docs/Model/Data.md
 docs/Model/InlineResponse200.md
 docs/Model/InlineResponse2001.md
 docs/Model/InlineResponse2002.md
@@ -17,6 +16,7 @@ docs/Model/InlineResponse2004.md
 docs/Model/InlineResponse2004Meta.md
 docs/Model/InlineResponse2005.md
 docs/Model/InlineResponse401.md
+docs/Model/InlineResponse402.md
 docs/Model/InlineResponse403.md
 docs/Model/InlineResponse404.md
 docs/Model/InlineResponse422.md
@@ -42,7 +42,6 @@ src/ApiException.php
 src/Configuration.php
 src/HeaderSelector.php
 src/Model/Component.php
-src/Model/Data.php
 src/Model/InlineResponse200.php
 src/Model/InlineResponse2001.php
 src/Model/InlineResponse2002.php
@@ -52,6 +51,7 @@ src/Model/InlineResponse2004.php
 src/Model/InlineResponse2004Meta.php
 src/Model/InlineResponse2005.php
 src/Model/InlineResponse401.php
+src/Model/InlineResponse402.php
 src/Model/InlineResponse403.php
 src/Model/InlineResponse404.php
 src/Model/InlineResponse422.php

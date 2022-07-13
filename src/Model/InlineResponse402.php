@@ -1,6 +1,7 @@
 <?php
 /**
- * ApiException
+ * InlineResponse402
+ *
  * PHP version 7.3
  *
  * @category Class
@@ -26,96 +27,357 @@
  * Do not edit the class manually.
  */
 
-namespace PDFGeneratorAPI;
+namespace PDFGeneratorAPI\Model;
 
-use \Exception;
+use \ArrayAccess;
+use \PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * ApiException Class Doc Comment
+ * InlineResponse402 Class Doc Comment
  *
  * @category Class
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
+ * @implements \ArrayAccess<TKey, TValue>
+ * @template TKey int|null
+ * @template TValue mixed|null
  */
-class ApiException extends Exception
+class InlineResponse402 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
+    public const DISCRIMINATOR = null;
 
     /**
-     * The HTTP body of the server response either as Json or string.
-     *
-     * @var \stdClass|string|null
-     */
-    protected $responseBody;
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $openAPIModelName = 'inline_response_402';
 
     /**
-     * The HTTP header of the server response.
-     *
-     * @var string[]|null
-     */
-    protected $responseHeaders;
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $openAPITypes = [
+        'error' => 'string',
+        'status' => 'int'
+    ];
 
     /**
-     * The deserialized response object
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
+    protected static $openAPIFormats = [
+        'error' => null,
+        'status' => null
+    ];
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization
      *
-     * @var \stdClass|string|null
+     * @return array
      */
-    protected $responseObject;
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @var string[]
+     */
+    protected static $attributeMap = [
+        'error' => 'error',
+        'status' => 'status'
+    ];
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @var string[]
+     */
+    protected static $setters = [
+        'error' => 'setError',
+        'status' => 'setStatus'
+    ];
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @var string[]
+     */
+    protected static $getters = [
+        'error' => 'getError',
+        'status' => 'getStatus'
+    ];
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
+     *
+     * @return array
+     */
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
+
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     *
+     * @return array
+     */
+    public static function setters()
+    {
+        return self::$setters;
+    }
+
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     *
+     * @return array
+     */
+    public static function getters()
+    {
+        return self::$getters;
+    }
+
+    /**
+     * The original name of the model.
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
+    }
+
+    const ERROR_YOUR_ACCOUNT_IS_SUSPENDED_PLEASE_UPGRADE_YOUR_ACCOUNT_OR_CONTACT_SUPPORTPDFGENERATORAPI_COM = 'Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getErrorAllowableValues()
+    {
+        return [
+            self::ERROR_YOUR_ACCOUNT_IS_SUSPENDED_PLEASE_UPGRADE_YOUR_ACCOUNT_OR_CONTACT_SUPPORTPDFGENERATORAPI_COM,
+        ];
+    }
+
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
      *
-     * @param string                $message         Error message
-     * @param int                   $code            HTTP status code
-     * @param string[]|null         $responseHeaders HTTP response header
-     * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
-    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct(array $data = null)
     {
-        parent::__construct($message, $code);
-        $this->responseHeaders = $responseHeaders;
-        $this->responseBody = $responseBody;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
-     * Gets the HTTP response header
+     * Show all the invalid properties with reasons.
      *
-     * @return string[]|null HTTP response header
+     * @return array invalid properties with reasons
      */
-    public function getResponseHeaders()
+    public function listInvalidProperties()
     {
-        return $this->responseHeaders;
+        $invalidProperties = [];
+
+        $allowedValues = $this->getErrorAllowableValues();
+        if (!is_null($this->container['error']) && !in_array($this->container['error'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'error', must be one of '%s'",
+                $this->container['error'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        return $invalidProperties;
     }
 
     /**
-     * Gets the HTTP body of the server response either as Json or string
+     * Validate all the properties in the model
+     * return true if all passed
      *
-     * @return \stdClass|string|null HTTP body of the server response either as \stdClass or string
+     * @return bool True if all properties are valid
      */
-    public function getResponseBody()
+    public function valid()
     {
-        return $this->responseBody;
+        return count($this->listInvalidProperties()) === 0;
+    }
+
+
+    /**
+     * Gets error
+     *
+     * @return string|null
+     */
+    public function getError()
+    {
+        return $this->container['error'];
     }
 
     /**
-     * Sets the deseralized response object (during deserialization)
+     * Sets error
      *
-     * @param mixed $obj Deserialized response object
+     * @param string|null $error Error description
+     *
+     * @return self
+     */
+    public function setError($error)
+    {
+        $allowedValues = $this->getErrorAllowableValues();
+        if (!is_null($error) && !in_array($error, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'error', must be one of '%s'",
+                    $error,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status HTTP Error code
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed|null
+     */
+    public function offsetGet($offset)
+    {
+        return $this->container[$offset] ?? null;
+    }
+
+    /**
+     * Sets value based on offset.
+     *
+     * @param int|null $offset Offset
+     * @param mixed    $value  Value to be set
      *
      * @return void
      */
-    public function setResponseObject($obj)
+    public function offsetSet($offset, $value)
     {
-        $this->responseObject = $obj;
+        if (is_null($offset)) {
+            $this->container[] = $value;
+        } else {
+            $this->container[$offset] = $value;
+        }
     }
 
     /**
-     * Gets the deseralized response object (during deserialization)
+     * Unsets offset.
      *
-     * @return mixed the deserialized response object
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    public function getResponseObject()
+    public function offsetUnset($offset)
     {
-        return $this->responseObject;
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     *
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
+     */
+    public function jsonSerialize()
+    {
+       return ObjectSerializer::sanitizeForSerialization($this);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode(
+            ObjectSerializer::sanitizeForSerialization($this),
+            JSON_PRETTY_PRINT
+        );
+    }
+
+    /**
+     * Gets a header-safe presentation of the object
+     *
+     * @return string
+     */
+    public function toHeaderValue()
+    {
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+
