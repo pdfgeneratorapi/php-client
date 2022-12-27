@@ -1,7 +1,7 @@
 # PDFGeneratorAPI
 
 # Introduction
-PDF Generator API allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.
+[PDF Generator API](https://pdfgeneratorapi.com) allows you easily generate transactional PDF documents and reduce the development and support costs by enabling your users to create and manage their document templates using a browser-based drag-and-drop document editor.
 
 The PDF Generator API features a web API architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
 
@@ -52,6 +52,9 @@ Data Field is a placeholder for the specific data in your JSON data set. In this
     ]
 }
 ```
+
+## Rate limiting
+Our API endpoints use IP-based rate limiting and allow you to make up to 30 requests per second and 240 requests per minute. If you make more requests, you will receive a response with HTTP code 429.
 
 *  *  *  *  *
 # Authentication
@@ -152,6 +155,7 @@ We have validated the generated libraries, but let us know if you find any anoma
 | 403    | Forbidden                      |
 | 404    | Not Found                      |
 | 422    | Unprocessable Entity           |
+| 429    | Too Many Requests              |
 | 500    | Internal Server Error          |
 
 ## 401 Unauthorized
@@ -193,6 +197,11 @@ We have validated the generated libraries, but let us know if you find any anoma
 | Required parameter missing: template definition not defined             |
 | Required parameter missing: template not defined                        |
 
+## 429 Too Many Requests
+| Description                                                             |
+|-------------------------------------------------------------------------|
+| You can make up to 5 requests per second and 120 requests per minute.   |
+
 
 For more information, please visit [https://support.pdfgeneratorapi.com](https://support.pdfgeneratorapi.com).
 
@@ -200,8 +209,8 @@ For more information, please visit [https://support.pdfgeneratorapi.com](https:/
 
 ### Requirements
 
-PHP 7.3 and later.
-Should also work with PHP 8.0 but has not been tested.
+PHP 7.4 and later.
+Should also work with PHP 8.0.
 
 ### Composer
 
@@ -253,7 +262,7 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$body = new \stdClass; // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+$body = array('key' => new \stdClass); // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 $name = My document; // string | Document name, returned in the meta data.
 $format = pdf; // string | Document format. The zip option will return a ZIP file with PDF files.
 $output = base64; // string | Response format. "I" is used to return the file inline. With the url option, the document is stored for 30 days and automatically deleted.
@@ -287,32 +296,33 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [BatchDataInner](docs/Model/BatchDataInner.md)
 - [Component](docs/Model/Component.md)
-- [InlineResponse200](docs/Model/InlineResponse200.md)
-- [InlineResponse2001](docs/Model/InlineResponse2001.md)
-- [InlineResponse2002](docs/Model/InlineResponse2002.md)
-- [InlineResponse2002Response](docs/Model/InlineResponse2002Response.md)
-- [InlineResponse2003](docs/Model/InlineResponse2003.md)
-- [InlineResponse2004](docs/Model/InlineResponse2004.md)
-- [InlineResponse2004Meta](docs/Model/InlineResponse2004Meta.md)
-- [InlineResponse2005](docs/Model/InlineResponse2005.md)
-- [InlineResponse401](docs/Model/InlineResponse401.md)
-- [InlineResponse402](docs/Model/InlineResponse402.md)
-- [InlineResponse403](docs/Model/InlineResponse403.md)
-- [InlineResponse404](docs/Model/InlineResponse404.md)
-- [InlineResponse422](docs/Model/InlineResponse422.md)
-- [InlineResponse500](docs/Model/InlineResponse500.md)
+- [CreateTemplate200Response](docs/Model/CreateTemplate200Response.md)
+- [DeleteTemplate200Response](docs/Model/DeleteTemplate200Response.md)
+- [DeleteTemplate200ResponseResponse](docs/Model/DeleteTemplate200ResponseResponse.md)
+- [GetEditorUrl200Response](docs/Model/GetEditorUrl200Response.md)
+- [GetTemplates200Response](docs/Model/GetTemplates200Response.md)
+- [GetTemplates401Response](docs/Model/GetTemplates401Response.md)
+- [GetTemplates402Response](docs/Model/GetTemplates402Response.md)
+- [GetTemplates403Response](docs/Model/GetTemplates403Response.md)
+- [GetTemplates404Response](docs/Model/GetTemplates404Response.md)
+- [GetTemplates422Response](docs/Model/GetTemplates422Response.md)
+- [GetTemplates429Response](docs/Model/GetTemplates429Response.md)
+- [GetTemplates500Response](docs/Model/GetTemplates500Response.md)
+- [GetWorkspace200Response](docs/Model/GetWorkspace200Response.md)
+- [MergeTemplate200Response](docs/Model/MergeTemplate200Response.md)
+- [MergeTemplate200ResponseMeta](docs/Model/MergeTemplate200ResponseMeta.md)
 - [Template](docs/Model/Template.md)
 - [TemplateDefinition](docs/Model/TemplateDefinition.md)
 - [TemplateDefinitionDataSettings](docs/Model/TemplateDefinitionDataSettings.md)
 - [TemplateDefinitionEditor](docs/Model/TemplateDefinitionEditor.md)
-- [TemplateDefinitionLayout](docs/Model/TemplateDefinitionLayout.md)
 - [TemplateDefinitionNew](docs/Model/TemplateDefinitionNew.md)
 - [TemplateDefinitionNewLayout](docs/Model/TemplateDefinitionNewLayout.md)
 - [TemplateDefinitionNewLayoutMargins](docs/Model/TemplateDefinitionNewLayoutMargins.md)
 - [TemplateDefinitionNewLayoutRepeatLayout](docs/Model/TemplateDefinitionNewLayoutRepeatLayout.md)
-- [TemplateDefinitionNewMargins](docs/Model/TemplateDefinitionNewMargins.md)
-- [TemplateDefinitionNewPages](docs/Model/TemplateDefinitionNewPages.md)
+- [TemplateDefinitionNewPagesInner](docs/Model/TemplateDefinitionNewPagesInner.md)
+- [TemplateDefinitionNewPagesInnerMargins](docs/Model/TemplateDefinitionNewPagesInnerMargins.md)
 - [Workspace](docs/Model/Workspace.md)
 
 ## Authorization

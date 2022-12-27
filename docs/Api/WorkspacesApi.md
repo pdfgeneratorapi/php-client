@@ -1,17 +1,17 @@
 # PDFGeneratorAPI\WorkspacesApi
 
-All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3.
+All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteWorkspace()**](WorkspacesApi.md#deleteWorkspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace
-[**getWorkspace()**](WorkspacesApi.md#getWorkspace) | **GET** /workspaces/{workspaceId} | Get workspace
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteWorkspace()**](WorkspacesApi.md#deleteWorkspace) | **DELETE** /workspaces/{workspaceId} | Delete workspace |
+| [**getWorkspace()**](WorkspacesApi.md#getWorkspace) | **GET** /workspaces/{workspaceId} | Get workspace |
 
 
 ## `deleteWorkspace()`
 
 ```php
-deleteWorkspace($workspace_id): \PDFGeneratorAPI\Model\InlineResponse2002
+deleteWorkspace($workspace_id): \PDFGeneratorAPI\Model\DeleteTemplate200Response
 ```
 
 Delete workspace
@@ -47,13 +47,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **workspace_id** | **string**| Workspace identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **workspace_id** | **string**| Workspace identifier | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\PDFGeneratorAPI\Model\DeleteTemplate200Response**](../Model/DeleteTemplate200Response.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 ## `getWorkspace()`
 
 ```php
-getWorkspace($workspace_id): \PDFGeneratorAPI\Model\InlineResponse2005
+getWorkspace($workspace_id): \PDFGeneratorAPI\Model\GetWorkspace200Response
 ```
 
 Get workspace
@@ -107,13 +107,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **workspace_id** | **string**| Workspace identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **workspace_id** | **string**| Workspace identifier | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\PDFGeneratorAPI\Model\GetWorkspace200Response**](../Model/GetWorkspace200Response.md)
 
 ### Authorization
 

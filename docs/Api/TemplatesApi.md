@@ -1,22 +1,22 @@
 # PDFGeneratorAPI\TemplatesApi
 
-All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3.
+All URIs are relative to https://us1.pdfgeneratorapi.com/api/v3, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**copyTemplate()**](TemplatesApi.md#copyTemplate) | **POST** /templates/{templateId}/copy | Copy template
-[**createTemplate()**](TemplatesApi.md#createTemplate) | **POST** /templates | Create template
-[**deleteTemplate()**](TemplatesApi.md#deleteTemplate) | **DELETE** /templates/{templateId} | Delete template
-[**getEditorUrl()**](TemplatesApi.md#getEditorUrl) | **POST** /templates/{templateId}/editor | Open editor
-[**getTemplate()**](TemplatesApi.md#getTemplate) | **GET** /templates/{templateId} | Get template
-[**getTemplates()**](TemplatesApi.md#getTemplates) | **GET** /templates | Get templates
-[**updateTemplate()**](TemplatesApi.md#updateTemplate) | **PUT** /templates/{templateId} | Update template
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**copyTemplate()**](TemplatesApi.md#copyTemplate) | **POST** /templates/{templateId}/copy | Copy template |
+| [**createTemplate()**](TemplatesApi.md#createTemplate) | **POST** /templates | Create template |
+| [**deleteTemplate()**](TemplatesApi.md#deleteTemplate) | **DELETE** /templates/{templateId} | Delete template |
+| [**getEditorUrl()**](TemplatesApi.md#getEditorUrl) | **POST** /templates/{templateId}/editor | Open editor |
+| [**getTemplate()**](TemplatesApi.md#getTemplate) | **GET** /templates/{templateId} | Get template |
+| [**getTemplates()**](TemplatesApi.md#getTemplates) | **GET** /templates | Get templates |
+| [**updateTemplate()**](TemplatesApi.md#updateTemplate) | **PUT** /templates/{templateId} | Update template |
 
 
 ## `copyTemplate()`
 
 ```php
-copyTemplate($template_id, $name): \PDFGeneratorAPI\Model\InlineResponse2001
+copyTemplate($template_id, $name): \PDFGeneratorAPI\Model\CreateTemplate200Response
 ```
 
 Copy template
@@ -53,14 +53,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
- **name** | **string**| Name for the copied template. If name is not specified then the original name is used. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | |
+| **name** | **string**| Name for the copied template. If name is not specified then the original name is used. | [optional] |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ## `createTemplate()`
 
 ```php
-createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineResponse2001
+createTemplate($template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate200Response
 ```
 
 Create template
@@ -114,13 +114,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ## `deleteTemplate()`
 
 ```php
-deleteTemplate($template_id): \PDFGeneratorAPI\Model\InlineResponse2002
+deleteTemplate($template_id): \PDFGeneratorAPI\Model\DeleteTemplate200Response
 ```
 
 Delete template
@@ -174,13 +174,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\PDFGeneratorAPI\Model\DeleteTemplate200Response**](../Model/DeleteTemplate200Response.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 ## `getEditorUrl()`
 
 ```php
-getEditorUrl($template_id, $body, $language): \PDFGeneratorAPI\Model\InlineResponse2003
+getEditorUrl($template_id, $body, $language): \PDFGeneratorAPI\Model\GetEditorUrl200Response
 ```
 
 Open editor
@@ -223,7 +223,7 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$body = new \stdClass; // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
+$body = array('key' => new \stdClass); // object | Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file.
 $language = en; // string | Specify the editor UI language. Defaults to organization editor language.
 
 try {
@@ -236,15 +236,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
- **body** | **object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. |
- **language** | **string**| Specify the editor UI language. Defaults to organization editor language. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | |
+| **body** | **object**| Data used to generate the PDF. This can be JSON encoded string or a public URL to your JSON file. | |
+| **language** | **string**| Specify the editor UI language. Defaults to organization editor language. | [optional] |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\PDFGeneratorAPI\Model\GetEditorUrl200Response**](../Model/GetEditorUrl200Response.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 ## `getTemplate()`
 
 ```php
-getTemplate($template_id): \PDFGeneratorAPI\Model\InlineResponse2001
+getTemplate($template_id): \PDFGeneratorAPI\Model\CreateTemplate200Response
 ```
 
 Get template
@@ -298,13 +298,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
 
 ### Authorization
 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 ## `getTemplates()`
 
 ```php
-getTemplates(): \PDFGeneratorAPI\Model\InlineResponse200
+getTemplates(): \PDFGeneratorAPI\Model\GetTemplates200Response
 ```
 
 Get templates
@@ -361,7 +361,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\PDFGeneratorAPI\Model\GetTemplates200Response**](../Model/GetTemplates200Response.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ This endpoint does not need any parameter.
 ## `updateTemplate()`
 
 ```php
-updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\InlineResponse2001
+updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate200Response
 ```
 
 Update template
@@ -416,14 +416,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **template_id** | **int**| Template unique identifier |
- **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | |
+| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
 
 ### Authorization
 
