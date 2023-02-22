@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Template name | [optional]
 **tags** | **string[]** | A list of tags assigned to a template | [optional]
 **is_draft** | **bool** | Indicates if the template is a draft or published. | [optional]
-**layout** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNewLayout**](TemplateDefinitionNewLayout.md) |  | [optional]
+**layout** | [**\PDFGeneratorAPI\Model\TemplateDefinitionLayout**](TemplateDefinitionLayout.md) |  | [optional]
 **pages** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNewPagesInner[]**](TemplateDefinitionNewPagesInner.md) | Defines page or label size, margins and components on page or label | [optional]
 **data_settings** | [**\PDFGeneratorAPI\Model\TemplateDefinitionDataSettings**](TemplateDefinitionDataSettings.md) |  | [optional]
 **editor** | [**\PDFGeneratorAPI\Model\TemplateDefinitionEditor**](TemplateDefinitionEditor.md) |  | [optional]

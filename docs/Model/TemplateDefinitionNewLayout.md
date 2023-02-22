@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **height** | **float** | Page height in units | [optional]
 **unit** | **string** | Measure unit | [optional]
 **orientation** | **string** | Page orientation | [optional]
-**rotation** | **int** | Page rotation in degrees | [optional]
+**rotaion** | **int** | Page rotation in degrees | [optional]
 **margins** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutMargins**](TemplateDefinitionNewLayoutMargins.md) |  | [optional]
 **repeat_layout** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNewLayoutRepeatLayout**](TemplateDefinitionNewLayoutRepeatLayout.md) |  | [optional]
 **empty_labels** | **int** | Defines how many pages or labels should be empty | [optional]
