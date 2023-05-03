@@ -319,7 +319,7 @@ try {
 ## `getTemplates()`
 
 ```php
-getTemplates($name, $tags, $access): \PDFGeneratorAPI\Model\GetTemplates200Response
+getTemplates($name, $tags, $access, $page, $per_page): \PDFGeneratorAPI\Model\GetTemplates200Response
 ```
 
 Get templates
@@ -346,9 +346,11 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
 $name = 'name_example'; // string | Filter template by name
 $tags = 'tags_example'; // string | Filter template by tags
 $access = private; // string | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
+$page = 1; // int | Pagination: page to return
+$per_page = 20; // int | Pagination: How many records to return per page
 
 try {
-    $result = $apiInstance->getTemplates($name, $tags, $access);
+    $result = $apiInstance->getTemplates($name, $tags, $access, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->getTemplates: ', $e->getMessage(), PHP_EOL;
@@ -362,6 +364,8 @@ try {
 | **name** | **string**| Filter template by name | [optional] |
 | **tags** | **string**| Filter template by tags | [optional] |
 | **access** | **string**| Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional] [default to &#39;&#39;] |
+| **page** | **int**| Pagination: page to return | [optional] [default to 1] |
+| **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
 
 ### Return type
 

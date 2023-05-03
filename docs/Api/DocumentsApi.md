@@ -5,9 +5,9 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**generateDocument()**](DocumentsApi.md#generateDocument) | **POST** /documents/generate | Generate document |
-| [**generateDocumentAsync()**](DocumentsApi.md#generateDocumentAsync) | **POST** /documents/generate/async | Generate document (async) |
+| [**generateDocumentAsynchronous()**](DocumentsApi.md#generateDocumentAsynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generateDocumentBatch()**](DocumentsApi.md#generateDocumentBatch) | **POST** /documents/generate/batch | Generate document (batch) |
-| [**generateDocumentBatchAsync()**](DocumentsApi.md#generateDocumentBatchAsync) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**generateDocumentBatchAsynchronous()**](DocumentsApi.md#generateDocumentBatchAsynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
 | [**getDocuments()**](DocumentsApi.md#getDocuments) | **GET** /documents | Get documents |
 
 
@@ -71,10 +71,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `generateDocumentAsync()`
+## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsync($generate_document_async_request): \PDFGeneratorAPI\Model\GenerateDocumentAsync200Response
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response
 ```
 
 Generate document (async)
@@ -98,13 +98,13 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_document_async_request = new \PDFGeneratorAPI\Model\GenerateDocumentAsyncRequest(); // \PDFGeneratorAPI\Model\GenerateDocumentAsyncRequest | Request parameters, including template id, data and formats.
+$generate_document_asynchronous_request = new \PDFGeneratorAPI\Model\GenerateDocumentAsynchronousRequest(); // \PDFGeneratorAPI\Model\GenerateDocumentAsynchronousRequest | Request parameters, including template id, data and formats.
 
 try {
-    $result = $apiInstance->generateDocumentAsync($generate_document_async_request);
+    $result = $apiInstance->generateDocumentAsynchronous($generate_document_asynchronous_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->generateDocumentAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->generateDocumentAsynchronous: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -112,11 +112,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_document_async_request** | [**\PDFGeneratorAPI\Model\GenerateDocumentAsyncRequest**](../Model/GenerateDocumentAsyncRequest.md)| Request parameters, including template id, data and formats. | |
+| **generate_document_asynchronous_request** | [**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronousRequest**](../Model/GenerateDocumentAsynchronousRequest.md)| Request parameters, including template id, data and formats. | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsync200Response**](../Model/GenerateDocumentAsync200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response**](../Model/GenerateDocumentAsynchronous200Response.md)
 
 ### Authorization
 
@@ -191,10 +191,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `generateDocumentBatchAsync()`
+## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsync($generate_document_batch_async_request): \PDFGeneratorAPI\Model\GenerateDocumentAsync200Response
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response
 ```
 
 Generate document (batch + async)
@@ -218,13 +218,13 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$generate_document_batch_async_request = new \PDFGeneratorAPI\Model\GenerateDocumentBatchAsyncRequest(); // \PDFGeneratorAPI\Model\GenerateDocumentBatchAsyncRequest | Request parameters, including template id, data and formats.
+$generate_document_batch_asynchronous_request = new \PDFGeneratorAPI\Model\GenerateDocumentBatchAsynchronousRequest(); // \PDFGeneratorAPI\Model\GenerateDocumentBatchAsynchronousRequest | Request parameters, including template id, data and formats.
 
 try {
-    $result = $apiInstance->generateDocumentBatchAsync($generate_document_batch_async_request);
+    $result = $apiInstance->generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->generateDocumentBatchAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->generateDocumentBatchAsynchronous: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -232,11 +232,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **generate_document_batch_async_request** | [**\PDFGeneratorAPI\Model\GenerateDocumentBatchAsyncRequest**](../Model/GenerateDocumentBatchAsyncRequest.md)| Request parameters, including template id, data and formats. | |
+| **generate_document_batch_asynchronous_request** | [**\PDFGeneratorAPI\Model\GenerateDocumentBatchAsynchronousRequest**](../Model/GenerateDocumentBatchAsynchronousRequest.md)| Request parameters, including template id, data and formats. | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsync200Response**](../Model/GenerateDocumentAsync200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response**](../Model/GenerateDocumentAsynchronous200Response.md)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ try {
 ## `getDocuments()`
 
 ```php
-getDocuments($start_date, $end_date): \PDFGeneratorAPI\Model\GetDocuments200Response
+getDocuments($start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\GetDocuments200Response
 ```
 
 Get documents
@@ -280,9 +280,11 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
 );
 $start_date = 2022-08-01 12:00:00; // string | Start date. Format: Y-m-d H:i:s
 $end_date = 2022-08-05 12:00:00; // string | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
+$page = 1; // int | Pagination: page to return
+$per_page = 20; // int | Pagination: How many records to return per page
 
 try {
-    $result = $apiInstance->getDocuments($start_date, $end_date);
+    $result = $apiInstance->getDocuments($start_date, $end_date, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->getDocuments: ', $e->getMessage(), PHP_EOL;
@@ -295,6 +297,8 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **start_date** | **string**| Start date. Format: Y-m-d H:i:s | [optional] |
 | **end_date** | **string**| End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] |
+| **page** | **int**| Pagination: page to return | [optional] [default to 1] |
+| **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
 
 ### Return type
 

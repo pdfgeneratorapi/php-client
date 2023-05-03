@@ -1,6 +1,6 @@
 <?php
 /**
- * Component
+ * GenerateDocumentAsynchronous200ResponseResponse
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * Component Class Doc Comment
+ * GenerateDocumentAsynchronous200ResponseResponse Class Doc Comment
  *
  * @category Class
- * @description Template component definition
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Component implements ModelInterface, ArrayAccess, \JsonSerializable
+class GenerateDocumentAsynchronous200ResponseResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Component';
+    protected static $openAPIModelName = 'generateDocumentAsynchronous_200_response_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +58,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cls' => 'string',
-        'id' => 'string',
-        'width' => 'float',
-        'height' => 'float',
-        'top' => 'float',
-        'left' => 'float',
-        'zindex' => 'int',
-        'value' => 'string',
-        'data_index' => 'string'
+        'job_id' => 'string'
     ];
 
     /**
@@ -78,15 +69,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cls' => null,
-        'id' => null,
-        'width' => null,
-        'height' => null,
-        'top' => null,
-        'left' => null,
-        'zindex' => null,
-        'value' => null,
-        'data_index' => null
+        'job_id' => null
     ];
 
     /**
@@ -95,15 +78,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cls' => false,
-		'id' => false,
-		'width' => false,
-		'height' => false,
-		'top' => false,
-		'left' => false,
-		'zindex' => false,
-		'value' => false,
-		'data_index' => false
+        'job_id' => false
     ];
 
     /**
@@ -192,15 +167,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'cls' => 'cls',
-        'id' => 'id',
-        'width' => 'width',
-        'height' => 'height',
-        'top' => 'top',
-        'left' => 'left',
-        'zindex' => 'zindex',
-        'value' => 'value',
-        'data_index' => 'dataIndex'
+        'job_id' => 'job_id'
     ];
 
     /**
@@ -209,15 +176,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'cls' => 'setCls',
-        'id' => 'setId',
-        'width' => 'setWidth',
-        'height' => 'setHeight',
-        'top' => 'setTop',
-        'left' => 'setLeft',
-        'zindex' => 'setZindex',
-        'value' => 'setValue',
-        'data_index' => 'setDataIndex'
+        'job_id' => 'setJobId'
     ];
 
     /**
@@ -226,15 +185,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'cls' => 'getCls',
-        'id' => 'getId',
-        'width' => 'getWidth',
-        'height' => 'getHeight',
-        'top' => 'getTop',
-        'left' => 'getLeft',
-        'zindex' => 'getZindex',
-        'value' => 'getValue',
-        'data_index' => 'getDataIndex'
+        'job_id' => 'getJobId'
     ];
 
     /**
@@ -278,51 +229,6 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CLS_LABEL_COMPONENT = 'labelComponent';
-    public const CLS_TABLE_COMPONENT = 'tableComponent';
-    public const CLS_COMPOSITE_COMPONENT = 'compositeComponent';
-    public const CLS_CHART_COMPONENT = 'chartComponent';
-    public const CLS_BARCODE_COMPONENT = 'barcodeComponent';
-    public const CLS_QRCODE_COMPONENT = 'qrcodeComponent';
-    public const CLS_IMAGE_COMPONENT = 'imageComponent';
-    public const CLS_HEADER_COMPONENT = 'headerComponent';
-    public const CLS_FOOTER_COMPONENT = 'footerComponent';
-    public const CLS_RECTANGLE_COMPONENT = 'rectangleComponent';
-    public const CLS_VLINE_COMPONENT = 'vlineComponent';
-    public const CLS_HLINE_COMPONENT = 'hlineComponent';
-    public const CLS_PAGENUMBER_COMPONENT = 'pagenumberComponent';
-    public const CLS_SYMBOL_COMPONENT = 'symbolComponent';
-    public const CLS_CHECKBOX_COMPONENT = 'checkboxComponent';
-    public const CLS_RADIO_COMPONENT = 'radioComponent';
-    public const CLS_SIGNATURE_COMPONENT = 'signatureComponent';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getClsAllowableValues()
-    {
-        return [
-            self::CLS_LABEL_COMPONENT,
-            self::CLS_TABLE_COMPONENT,
-            self::CLS_COMPOSITE_COMPONENT,
-            self::CLS_CHART_COMPONENT,
-            self::CLS_BARCODE_COMPONENT,
-            self::CLS_QRCODE_COMPONENT,
-            self::CLS_IMAGE_COMPONENT,
-            self::CLS_HEADER_COMPONENT,
-            self::CLS_FOOTER_COMPONENT,
-            self::CLS_RECTANGLE_COMPONENT,
-            self::CLS_VLINE_COMPONENT,
-            self::CLS_HLINE_COMPONENT,
-            self::CLS_PAGENUMBER_COMPONENT,
-            self::CLS_SYMBOL_COMPONENT,
-            self::CLS_CHECKBOX_COMPONENT,
-            self::CLS_RADIO_COMPONENT,
-            self::CLS_SIGNATURE_COMPONENT,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -339,15 +245,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('cls', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('width', $data ?? [], null);
-        $this->setIfExists('height', $data ?? [], null);
-        $this->setIfExists('top', $data ?? [], null);
-        $this->setIfExists('left', $data ?? [], null);
-        $this->setIfExists('zindex', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('data_index', $data ?? [], null);
+        $this->setIfExists('job_id', $data ?? [], null);
     }
 
     /**
@@ -377,15 +275,6 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getClsAllowableValues();
-        if (!is_null($this->container['cls']) && !in_array($this->container['cls'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'cls', must be one of '%s'",
-                $this->container['cls'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -402,254 +291,28 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets cls
+     * Gets job_id
      *
      * @return string|null
      */
-    public function getCls()
+    public function getJobId()
     {
-        return $this->container['cls'];
+        return $this->container['job_id'];
     }
 
     /**
-     * Sets cls
+     * Sets job_id
      *
-     * @param string|null $cls Defines component class/type
+     * @param string|null $job_id Unique job id which is also added to the callback request as header PDF-API-Job-Id
      *
      * @return self
      */
-    public function setCls($cls)
+    public function setJobId($job_id)
     {
-        if (is_null($cls)) {
-            throw new \InvalidArgumentException('non-nullable cls cannot be null');
+        if (is_null($job_id)) {
+            throw new \InvalidArgumentException('non-nullable job_id cannot be null');
         }
-        $allowedValues = $this->getClsAllowableValues();
-        if (!in_array($cls, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'cls', must be one of '%s'",
-                    $cls,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['cls'] = $cls;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Component id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets width
-     *
-     * @return float|null
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     *
-     * @param float|null $width Width in units
-     *
-     * @return self
-     */
-    public function setWidth($width)
-    {
-        if (is_null($width)) {
-            throw new \InvalidArgumentException('non-nullable width cannot be null');
-        }
-        $this->container['width'] = $width;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return float|null
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param float|null $height Height in units
-     *
-     * @return self
-     */
-    public function setHeight($height)
-    {
-        if (is_null($height)) {
-            throw new \InvalidArgumentException('non-nullable height cannot be null');
-        }
-        $this->container['height'] = $height;
-
-        return $this;
-    }
-
-    /**
-     * Gets top
-     *
-     * @return float|null
-     */
-    public function getTop()
-    {
-        return $this->container['top'];
-    }
-
-    /**
-     * Sets top
-     *
-     * @param float|null $top Position from the page top in units
-     *
-     * @return self
-     */
-    public function setTop($top)
-    {
-        if (is_null($top)) {
-            throw new \InvalidArgumentException('non-nullable top cannot be null');
-        }
-        $this->container['top'] = $top;
-
-        return $this;
-    }
-
-    /**
-     * Gets left
-     *
-     * @return float|null
-     */
-    public function getLeft()
-    {
-        return $this->container['left'];
-    }
-
-    /**
-     * Sets left
-     *
-     * @param float|null $left Position from the page left in units
-     *
-     * @return self
-     */
-    public function setLeft($left)
-    {
-        if (is_null($left)) {
-            throw new \InvalidArgumentException('non-nullable left cannot be null');
-        }
-        $this->container['left'] = $left;
-
-        return $this;
-    }
-
-    /**
-     * Gets zindex
-     *
-     * @return int|null
-     */
-    public function getZindex()
-    {
-        return $this->container['zindex'];
-    }
-
-    /**
-     * Sets zindex
-     *
-     * @param int|null $zindex Defines the rendering order on page. Components with smaller zindex are rendered before
-     *
-     * @return self
-     */
-    public function setZindex($zindex)
-    {
-        if (is_null($zindex)) {
-            throw new \InvalidArgumentException('non-nullable zindex cannot be null');
-        }
-        $this->container['zindex'] = $zindex;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string|null $value Component value
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
-        }
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_index
-     *
-     * @return string|null
-     */
-    public function getDataIndex()
-    {
-        return $this->container['data_index'];
-    }
-
-    /**
-     * Sets data_index
-     *
-     * @param string|null $data_index Defines data field for Table and Container components which are used to iterate over list of items
-     *
-     * @return self
-     */
-    public function setDataIndex($data_index)
-    {
-        if (is_null($data_index)) {
-            throw new \InvalidArgumentException('non-nullable data_index cannot be null');
-        }
-        $this->container['data_index'] = $data_index;
+        $this->container['job_id'] = $job_id;
 
         return $this;
     }

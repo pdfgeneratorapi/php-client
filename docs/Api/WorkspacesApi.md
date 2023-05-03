@@ -193,7 +193,7 @@ try {
 ## `getWorkspaces()`
 
 ```php
-getWorkspaces(): \PDFGeneratorAPI\Model\GetWorkspaces200Response
+getWorkspaces($page, $per_page): \PDFGeneratorAPI\Model\GetWorkspaces200Response
 ```
 
 Get workspaces
@@ -217,9 +217,11 @@ $apiInstance = new PDFGeneratorAPI\Api\WorkspacesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$page = 1; // int | Pagination: page to return
+$per_page = 20; // int | Pagination: How many records to return per page
 
 try {
-    $result = $apiInstance->getWorkspaces();
+    $result = $apiInstance->getWorkspaces($page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->getWorkspaces: ', $e->getMessage(), PHP_EOL;
@@ -228,7 +230,10 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| Pagination: page to return | [optional] [default to 1] |
+| **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
 
 ### Return type
 
