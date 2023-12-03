@@ -17,7 +17,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `copyTemplate()`
 
 ```php
-copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\CreateTemplate200Response
+copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\CreateTemplate201Response
 ```
 
 Copy template
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `createTemplate()`
 
 ```php
-createTemplate($template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate200Response
+createTemplate($template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate201Response
 ```
 
 Create template
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -199,7 +199,7 @@ try {
 ## `getTemplate()`
 
 ```php
-getTemplate($template_id): \PDFGeneratorAPI\Model\CreateTemplate200Response
+getTemplate($template_id): \PDFGeneratorAPI\Model\CreateTemplate201Response
 ```
 
 Get template
@@ -241,7 +241,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
 
 ### Authorization
 
@@ -449,7 +449,7 @@ try {
 ## `updateTemplate()`
 
 ```php
-updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate200Response
+updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate201Response
 ```
 
 Update template
@@ -493,7 +493,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate200Response**](../Model/CreateTemplate200Response.md)
+[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
 
 ### Authorization
 

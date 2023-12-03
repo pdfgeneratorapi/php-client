@@ -14,7 +14,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `generateDocument()`
 
 ```php
-generateDocument($generate_document_request): \PDFGeneratorAPI\Model\GenerateDocument200Response
+generateDocument($generate_document_request): \PDFGeneratorAPI\Model\GenerateDocument201Response
 ```
 
 Generate document
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocument200Response**](../Model/GenerateDocument200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocument201Response**](../Model/GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response
 ```
 
 Generate document (async)
@@ -116,7 +116,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response**](../Model/GenerateDocumentAsynchronous200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response**](../Model/GenerateDocumentAsynchronous201Response.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ try {
 ## `generateDocumentBatch()`
 
 ```php
-generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\GenerateDocument200Response
+generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\GenerateDocument201Response
 ```
 
 Generate document (batch)
@@ -176,7 +176,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocument200Response**](../Model/GenerateDocument200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocument201Response**](../Model/GenerateDocument201Response.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ try {
 ## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response
 ```
 
 Generate document (batch + async)
@@ -236,7 +236,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous200Response**](../Model/GenerateDocumentAsynchronous200Response.md)
+[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response**](../Model/GenerateDocumentAsynchronous201Response.md)
 
 ### Authorization
 

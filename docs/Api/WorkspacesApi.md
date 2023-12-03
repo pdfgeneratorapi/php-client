@@ -13,7 +13,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `createWorkspace()`
 
 ```php
-createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\CreateWorkspace200Response
+createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\CreateWorkspace201Response
 ```
 
 Create workspace
@@ -55,7 +55,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateWorkspace200Response**](../Model/CreateWorkspace200Response.md)
+[**\PDFGeneratorAPI\Model\CreateWorkspace201Response**](../Model/CreateWorkspace201Response.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ try {
 ## `getWorkspace()`
 
 ```php
-getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\CreateWorkspace200Response
+getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\CreateWorkspace201Response
 ```
 
 Get workspace
@@ -175,7 +175,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateWorkspace200Response**](../Model/CreateWorkspace200Response.md)
+[**\PDFGeneratorAPI\Model\CreateWorkspace201Response**](../Model/CreateWorkspace201Response.md)
 
 ### Authorization
 
