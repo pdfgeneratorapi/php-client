@@ -17,8 +17,8 @@ docs/Model/CreateTemplate201Response.md
 docs/Model/CreateWorkspace201Response.md
 docs/Model/CreateWorkspaceRequest.md
 docs/Model/DataBatchInner.md
-docs/Model/DeleteTemplate204Response.md
-docs/Model/DeleteTemplate204ResponseResponse.md
+docs/Model/DeleteWorkspace204Response.md
+docs/Model/DeleteWorkspace204ResponseResponse.md
 docs/Model/Document.md
 docs/Model/FormatParam.md
 docs/Model/GenerateDocument201Response.md
@@ -47,9 +47,9 @@ docs/Model/OutputParam.md
 docs/Model/PaginationMeta.md
 docs/Model/Template.md
 docs/Model/TemplateDefinition.md
-docs/Model/TemplateDefinitionDataSettings.md
-docs/Model/TemplateDefinitionEditor.md
 docs/Model/TemplateDefinitionNew.md
+docs/Model/TemplateDefinitionNewDataSettings.md
+docs/Model/TemplateDefinitionNewEditor.md
 docs/Model/TemplateDefinitionNewLayout.md
 docs/Model/TemplateDefinitionNewLayoutMargins.md
 docs/Model/TemplateDefinitionNewLayoutRepeatLayout.md
@@ -77,8 +77,8 @@ src/Model/CreateTemplate201Response.php
 src/Model/CreateWorkspace201Response.php
 src/Model/CreateWorkspaceRequest.php
 src/Model/DataBatchInner.php
-src/Model/DeleteTemplate204Response.php
-src/Model/DeleteTemplate204ResponseResponse.php
+src/Model/DeleteWorkspace204Response.php
+src/Model/DeleteWorkspace204ResponseResponse.php
 src/Model/Document.php
 src/Model/FormatParam.php
 src/Model/GenerateDocument201Response.php
@@ -108,9 +108,9 @@ src/Model/OutputParam.php
 src/Model/PaginationMeta.php
 src/Model/Template.php
 src/Model/TemplateDefinition.php
-src/Model/TemplateDefinitionDataSettings.php
-src/Model/TemplateDefinitionEditor.php
 src/Model/TemplateDefinitionNew.php
+src/Model/TemplateDefinitionNewDataSettings.php
+src/Model/TemplateDefinitionNewEditor.php
 src/Model/TemplateDefinitionNewLayout.php
 src/Model/TemplateDefinitionNewLayoutMargins.php
 src/Model/TemplateDefinitionNewLayoutRepeatLayout.php
@@ -120,9 +120,3 @@ src/Model/TemplateParam.php
 src/Model/TemplateParamData.php
 src/Model/Workspace.php
 src/ObjectSerializer.php
-test/Model/CreateTemplate201ResponseTest.php
-test/Model/CreateWorkspace201ResponseTest.php
-test/Model/GenerateDocument201ResponseMetaTest.php
-test/Model/GenerateDocument201ResponseTest.php
-test/Model/GenerateDocumentAsynchronous201ResponseResponseTest.php
-test/Model/GenerateDocumentAsynchronous201ResponseTest.php

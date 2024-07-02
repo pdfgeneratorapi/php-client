@@ -103,7 +103,7 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration as JSON string
+$template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration
 
 try {
     $result = $apiInstance->createTemplate($template_definition_new);
@@ -117,7 +117,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string | |
+| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration | |
 
 ### Return type
 
@@ -139,7 +139,7 @@ try {
 ## `deleteTemplate()`
 
 ```php
-deleteTemplate($template_id): \PDFGeneratorAPI\Model\DeleteTemplate204Response
+deleteTemplate($template_id)
 ```
 
 Delete template
@@ -166,8 +166,7 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
 $template_id = 19375; // int | Template unique identifier
 
 try {
-    $result = $apiInstance->deleteTemplate($template_id);
-    print_r($result);
+    $apiInstance->deleteTemplate($template_id);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->deleteTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -181,7 +180,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\DeleteTemplate204Response**](../Model/DeleteTemplate204Response.md)
+void (empty response body)
 
 ### Authorization
 
@@ -474,7 +473,7 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration as JSON string
+$template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration
 
 try {
     $result = $apiInstance->updateTemplate($template_id, $template_definition_new);
@@ -489,7 +488,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **int**| Template unique identifier | |
-| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration as JSON string | |
+| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration | |
 
 ### Return type
 

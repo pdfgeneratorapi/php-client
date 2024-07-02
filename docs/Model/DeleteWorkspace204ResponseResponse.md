@@ -1,10 +1,9 @@
-# # CreateTemplate201Response
+# # DeleteWorkspace204ResponseResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**\PDFGeneratorAPI\Model\TemplateDefinition**](TemplateDefinition.md) |  | [optional]
-**meta** | **object** |  | [optional]
+**success** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -73,7 +73,7 @@ try {
 ## `deleteWorkspace()`
 
 ```php
-deleteWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\DeleteTemplate204Response
+deleteWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\DeleteWorkspace204Response
 ```
 
 Delete workspace
@@ -115,7 +115,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\DeleteTemplate204Response**](../Model/DeleteTemplate204Response.md)
+[**\PDFGeneratorAPI\Model\DeleteWorkspace204Response**](../Model/DeleteWorkspace204Response.md)
 
 ### Authorization
 

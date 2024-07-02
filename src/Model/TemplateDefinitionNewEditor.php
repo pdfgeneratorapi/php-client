@@ -1,6 +1,6 @@
 <?php
 /**
- * Document
+ * TemplateDefinitionNewEditor
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \PDFGeneratorAPI\ObjectSerializer;
 
 /**
- * Document Class Doc Comment
+ * TemplateDefinitionNewEditor Class Doc Comment
  *
  * @category Class
+ * @description Configuration preferences for the editor
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Document implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateDefinitionNewEditor implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Document';
+    protected static $openAPIModelName = 'TemplateDefinitionNew_editor';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +59,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'public_id' => 'string',
-        'public_url' => 'string',
-        'template_id' => 'int',
-        'created_at' => 'string',
-        'expires_at' => 'string'
+        'height_multiplier' => 'float'
     ];
 
     /**
@@ -73,11 +70,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'public_id' => null,
-        'public_url' => null,
-        'template_id' => null,
-        'created_at' => null,
-        'expires_at' => null
+        'height_multiplier' => null
     ];
 
     /**
@@ -86,11 +79,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'public_id' => false,
-		'public_url' => false,
-		'template_id' => false,
-		'created_at' => false,
-		'expires_at' => false
+        'height_multiplier' => false
     ];
 
     /**
@@ -179,11 +168,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'public_id' => 'public_id',
-        'public_url' => 'public_url',
-        'template_id' => 'template_id',
-        'created_at' => 'created_at',
-        'expires_at' => 'expires_at'
+        'height_multiplier' => 'heightMultiplier'
     ];
 
     /**
@@ -192,11 +177,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'public_id' => 'setPublicId',
-        'public_url' => 'setPublicUrl',
-        'template_id' => 'setTemplateId',
-        'created_at' => 'setCreatedAt',
-        'expires_at' => 'setExpiresAt'
+        'height_multiplier' => 'setHeightMultiplier'
     ];
 
     /**
@@ -205,11 +186,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'public_id' => 'getPublicId',
-        'public_url' => 'getPublicUrl',
-        'template_id' => 'getTemplateId',
-        'created_at' => 'getCreatedAt',
-        'expires_at' => 'getExpiresAt'
+        'height_multiplier' => 'getHeightMultiplier'
     ];
 
     /**
@@ -269,11 +246,7 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('public_id', $data ?? [], null);
-        $this->setIfExists('public_url', $data ?? [], null);
-        $this->setIfExists('template_id', $data ?? [], null);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('expires_at', $data ?? [], null);
+        $this->setIfExists('height_multiplier', $data ?? [], null);
     }
 
     /**
@@ -319,136 +292,28 @@ class Document implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets public_id
+     * Gets height_multiplier
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getPublicId()
+    public function getHeightMultiplier()
     {
-        return $this->container['public_id'];
+        return $this->container['height_multiplier'];
     }
 
     /**
-     * Sets public_id
+     * Sets height_multiplier
      *
-     * @param string|null $public_id Document unique identifier
+     * @param float|null $height_multiplier height_multiplier
      *
      * @return self
      */
-    public function setPublicId($public_id)
+    public function setHeightMultiplier($height_multiplier)
     {
-        if (is_null($public_id)) {
-            throw new \InvalidArgumentException('non-nullable public_id cannot be null');
+        if (is_null($height_multiplier)) {
+            throw new \InvalidArgumentException('non-nullable height_multiplier cannot be null');
         }
-        $this->container['public_id'] = $public_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets public_url
-     *
-     * @return string|null
-     */
-    public function getPublicUrl()
-    {
-        return $this->container['public_url'];
-    }
-
-    /**
-     * Sets public_url
-     *
-     * @param string|null $public_url Public URL of the document
-     *
-     * @return self
-     */
-    public function setPublicUrl($public_url)
-    {
-        if (is_null($public_url)) {
-            throw new \InvalidArgumentException('non-nullable public_url cannot be null');
-        }
-        $this->container['public_url'] = $public_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets template_id
-     *
-     * @return int|null
-     */
-    public function getTemplateId()
-    {
-        return $this->container['template_id'];
-    }
-
-    /**
-     * Sets template_id
-     *
-     * @param int|null $template_id Template used to generate the document
-     *
-     * @return self
-     */
-    public function setTemplateId($template_id)
-    {
-        if (is_null($template_id)) {
-            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
-        }
-        $this->container['template_id'] = $template_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string|null $created_at Date time when the document was generated
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_at
-     *
-     * @return string|null
-     */
-    public function getExpiresAt()
-    {
-        return $this->container['expires_at'];
-    }
-
-    /**
-     * Sets expires_at
-     *
-     * @param string|null $expires_at Date time when the document url will expire. Document is stored for 30 days.
-     *
-     * @return self
-     */
-    public function setExpiresAt($expires_at)
-    {
-        if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
-        }
-        $this->container['expires_at'] = $expires_at;
+        $this->container['height_multiplier'] = $height_multiplier;
 
         return $this;
     }
