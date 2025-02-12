@@ -73,7 +73,7 @@ try {
 ## `deleteWorkspace()`
 
 ```php
-deleteWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\DeleteWorkspace204Response
+deleteWorkspace($workspace_identifier)
 ```
 
 Delete workspace
@@ -100,8 +100,7 @@ $apiInstance = new PDFGeneratorAPI\Api\WorkspacesApi(
 $workspace_identifier = demo.example@actualreports.com; // string | Workspace identifier
 
 try {
-    $result = $apiInstance->deleteWorkspace($workspace_identifier);
-    print_r($result);
+    $apiInstance->deleteWorkspace($workspace_identifier);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->deleteWorkspace: ', $e->getMessage(), PHP_EOL;
 }
@@ -115,7 +114,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\DeleteWorkspace204Response**](../Model/DeleteWorkspace204Response.md)
+void (empty response body)
 
 ### Authorization
 

@@ -285,11 +285,19 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ConversionApi* | [**convertHTML2PDF**](docs/Api/ConversionApi.md#converthtml2pdf) | **POST** /conversion/html2pdf | HTML to PDF
 *ConversionApi* | [**convertURL2PDF**](docs/Api/ConversionApi.md#converturl2pdf) | **POST** /conversion/url2pdf | URL to PDF
+*DocumentsApi* | [**deleteDocument**](docs/Api/DocumentsApi.md#deletedocument) | **DELETE** /documents/{publicId} | Delete document
 *DocumentsApi* | [**generateDocument**](docs/Api/DocumentsApi.md#generatedocument) | **POST** /documents/generate | Generate document
 *DocumentsApi* | [**generateDocumentAsynchronous**](docs/Api/DocumentsApi.md#generatedocumentasynchronous) | **POST** /documents/generate/async | Generate document (async)
 *DocumentsApi* | [**generateDocumentBatch**](docs/Api/DocumentsApi.md#generatedocumentbatch) | **POST** /documents/generate/batch | Generate document (batch)
 *DocumentsApi* | [**generateDocumentBatchAsynchronous**](docs/Api/DocumentsApi.md#generatedocumentbatchasynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async)
+*DocumentsApi* | [**getDocument**](docs/Api/DocumentsApi.md#getdocument) | **GET** /documents/{publicId} | Get document
 *DocumentsApi* | [**getDocuments**](docs/Api/DocumentsApi.md#getdocuments) | **GET** /documents | Get documents
+*FormsApi* | [**createFrom**](docs/Api/FormsApi.md#createfrom) | **POST** /forms | Create form
+*FormsApi* | [**deleteForm**](docs/Api/FormsApi.md#deleteform) | **DELETE** /forms/{formId} | Delete form
+*FormsApi* | [**getForm**](docs/Api/FormsApi.md#getform) | **GET** /forms/{formId} | Get form
+*FormsApi* | [**getForms**](docs/Api/FormsApi.md#getforms) | **GET** /forms | Get forms
+*FormsApi* | [**shareForm**](docs/Api/FormsApi.md#shareform) | **POST** /forms/{formId}/share | Share form
+*FormsApi* | [**updateForm**](docs/Api/FormsApi.md#updateform) | **PUT** /forms/{formId} | Update form
 *TemplatesApi* | [**copyTemplate**](docs/Api/TemplatesApi.md#copytemplate) | **POST** /templates/{templateId}/copy | Copy template
 *TemplatesApi* | [**createTemplate**](docs/Api/TemplatesApi.md#createtemplate) | **POST** /templates | Create template
 *TemplatesApi* | [**deleteTemplate**](docs/Api/TemplatesApi.md#deletetemplate) | **DELETE** /templates/{templateId} | Delete template
@@ -311,13 +319,18 @@ Class | Method | HTTP request | Description
 - [ConvertHTML2PDFRequest](docs/Model/ConvertHTML2PDFRequest.md)
 - [ConvertURL2PDFRequest](docs/Model/ConvertURL2PDFRequest.md)
 - [CopyTemplateRequest](docs/Model/CopyTemplateRequest.md)
+- [CreateFrom201Response](docs/Model/CreateFrom201Response.md)
 - [CreateTemplate201Response](docs/Model/CreateTemplate201Response.md)
 - [CreateWorkspace201Response](docs/Model/CreateWorkspace201Response.md)
 - [CreateWorkspaceRequest](docs/Model/CreateWorkspaceRequest.md)
 - [DataBatchInner](docs/Model/DataBatchInner.md)
-- [DeleteWorkspace204Response](docs/Model/DeleteWorkspace204Response.md)
-- [DeleteWorkspace204ResponseResponse](docs/Model/DeleteWorkspace204ResponseResponse.md)
 - [Document](docs/Model/Document.md)
+- [FormActionDownload](docs/Model/FormActionDownload.md)
+- [FormActionStore](docs/Model/FormActionStore.md)
+- [FormConfiguration](docs/Model/FormConfiguration.md)
+- [FormConfigurationNew](docs/Model/FormConfigurationNew.md)
+- [FormConfigurationNewActionsInner](docs/Model/FormConfigurationNewActionsInner.md)
+- [FormFieldsInner](docs/Model/FormFieldsInner.md)
 - [FormatParam](docs/Model/FormatParam.md)
 - [GenerateDocument201Response](docs/Model/GenerateDocument201Response.md)
 - [GenerateDocument201ResponseMeta](docs/Model/GenerateDocument201ResponseMeta.md)
@@ -327,7 +340,10 @@ Class | Method | HTTP request | Description
 - [GenerateDocumentBatchAsynchronousRequest](docs/Model/GenerateDocumentBatchAsynchronousRequest.md)
 - [GenerateDocumentBatchRequest](docs/Model/GenerateDocumentBatchRequest.md)
 - [GenerateDocumentRequest](docs/Model/GenerateDocumentRequest.md)
+- [GetDocument200Response](docs/Model/GetDocument200Response.md)
+- [GetDocument200ResponseMeta](docs/Model/GetDocument200ResponseMeta.md)
 - [GetDocuments200Response](docs/Model/GetDocuments200Response.md)
+- [GetForms200Response](docs/Model/GetForms200Response.md)
 - [GetTemplateData200Response](docs/Model/GetTemplateData200Response.md)
 - [GetTemplates200Response](docs/Model/GetTemplates200Response.md)
 - [GetTemplates401Response](docs/Model/GetTemplates401Response.md)
@@ -338,13 +354,19 @@ Class | Method | HTTP request | Description
 - [GetTemplates429Response](docs/Model/GetTemplates429Response.md)
 - [GetTemplates500Response](docs/Model/GetTemplates500Response.md)
 - [GetWorkspaces200Response](docs/Model/GetWorkspaces200Response.md)
+- [InlineObject](docs/Model/InlineObject.md)
+- [InlineObjectResponse](docs/Model/InlineObjectResponse.md)
 - [OpenEditor200Response](docs/Model/OpenEditor200Response.md)
 - [OpenEditorRequest](docs/Model/OpenEditorRequest.md)
 - [OpenEditorRequestData](docs/Model/OpenEditorRequestData.md)
 - [OutputParam](docs/Model/OutputParam.md)
 - [PaginationMeta](docs/Model/PaginationMeta.md)
+- [ShareForm201Response](docs/Model/ShareForm201Response.md)
+- [ShareForm201ResponseMeta](docs/Model/ShareForm201ResponseMeta.md)
 - [Template](docs/Model/Template.md)
 - [TemplateDefinition](docs/Model/TemplateDefinition.md)
+- [TemplateDefinitionDataSettings](docs/Model/TemplateDefinitionDataSettings.md)
+- [TemplateDefinitionEditor](docs/Model/TemplateDefinitionEditor.md)
 - [TemplateDefinitionNew](docs/Model/TemplateDefinitionNew.md)
 - [TemplateDefinitionNewDataSettings](docs/Model/TemplateDefinitionNewDataSettings.md)
 - [TemplateDefinitionNewEditor](docs/Model/TemplateDefinitionNewEditor.md)
@@ -353,12 +375,14 @@ Class | Method | HTTP request | Description
 - [TemplateDefinitionNewLayoutRepeatLayout](docs/Model/TemplateDefinitionNewLayoutRepeatLayout.md)
 - [TemplateDefinitionNewPagesInner](docs/Model/TemplateDefinitionNewPagesInner.md)
 - [TemplateDefinitionNewPagesInnerMargins](docs/Model/TemplateDefinitionNewPagesInnerMargins.md)
+- [TemplateDefinitionPagesInner](docs/Model/TemplateDefinitionPagesInner.md)
 - [TemplateParam](docs/Model/TemplateParam.md)
 - [TemplateParamData](docs/Model/TemplateParamData.md)
 - [Workspace](docs/Model/Workspace.md)
 
 ## Authorization
 
+Authentication schemes defined for the API:
 ### JSONWebTokenAuth
 
 - **Type**: Bearer authentication (JWT)
@@ -380,5 +404,6 @@ support@pdfgeneratorapi.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `4.0.4`
+- API version: `4.0.8`
+    - Generator version: `7.11.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

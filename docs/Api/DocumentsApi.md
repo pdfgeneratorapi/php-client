@@ -4,12 +4,73 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{publicId} | Delete document |
 | [**generateDocument()**](DocumentsApi.md#generateDocument) | **POST** /documents/generate | Generate document |
 | [**generateDocumentAsynchronous()**](DocumentsApi.md#generateDocumentAsynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generateDocumentBatch()**](DocumentsApi.md#generateDocumentBatch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generateDocumentBatchAsynchronous()**](DocumentsApi.md#generateDocumentBatchAsynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{publicId} | Get document |
 | [**getDocuments()**](DocumentsApi.md#getDocuments) | **GET** /documents | Get documents |
 
+
+## `deleteDocument()`
+
+```php
+deleteDocument($public_id)
+```
+
+Delete document
+
+Delete document from the Document Storage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+
+try {
+    $apiInstance->deleteDocument($public_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->deleteDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `generateDocument()`
 
@@ -251,10 +312,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getDocument()`
+
+```php
+getDocument($public_id): \PDFGeneratorAPI\Model\GetDocument200Response
+```
+
+Get document
+
+Returns document stored in the Document Storage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+
+try {
+    $result = $apiInstance->getDocument($public_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->getDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\GetDocument200Response**](../Model/GetDocument200Response.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getDocuments()`
 
 ```php
-getDocuments($start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\GetDocuments200Response
+getDocuments($template_id, $start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\GetDocuments200Response
 ```
 
 Get documents
@@ -278,13 +399,14 @@ $apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$template_id = 19375; // int | Template unique identifier
 $start_date = 2022-08-01 12:00:00; // string | Start date. Format: Y-m-d H:i:s
 $end_date = 2022-08-05 12:00:00; // string | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
 $page = 1; // int | Pagination: page to return
 $per_page = 20; // int | Pagination: How many records to return per page
 
 try {
-    $result = $apiInstance->getDocuments($start_date, $end_date, $page, $per_page);
+    $result = $apiInstance->getDocuments($template_id, $start_date, $end_date, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->getDocuments: ', $e->getMessage(), PHP_EOL;
@@ -295,6 +417,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **int**| Template unique identifier | [optional] |
 | **start_date** | **string**| Start date. Format: Y-m-d H:i:s | [optional] |
 | **end_date** | **string**| End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] |
 | **page** | **int**| Pagination: page to return | [optional] [default to 1] |
