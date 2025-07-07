@@ -11,7 +11,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `convertHTML2PDF()`
 
 ```php
-convertHTML2PDF($convert_html2_pdf_request): \PDFGeneratorAPI\Model\GenerateDocument201Response
+convertHTML2PDF($convert_html2_pdf_request): \PDFGeneratorAPI\Model\AddWatermark201Response
 ```
 
 HTML to PDF
@@ -53,7 +53,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocument201Response**](../Model/GenerateDocument201Response.md)
+[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ try {
 ## `convertURL2PDF()`
 
 ```php
-convertURL2PDF($convert_url2_pdf_request): \PDFGeneratorAPI\Model\GenerateDocument201Response
+convertURL2PDF($convert_url2_pdf_request): \PDFGeneratorAPI\Model\AddWatermark201Response
 ```
 
 URL to PDF
@@ -113,7 +113,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocument201Response**](../Model/GenerateDocument201Response.md)
+[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
 
 ### Authorization
 
