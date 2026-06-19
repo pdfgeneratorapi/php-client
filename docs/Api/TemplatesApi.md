@@ -9,7 +9,9 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | [**deleteTemplate()**](TemplatesApi.md#deleteTemplate) | **DELETE** /templates/{templateId} | Delete template |
 | [**getTemplate()**](TemplatesApi.md#getTemplate) | **GET** /templates/{templateId} | Get template |
 | [**getTemplateData()**](TemplatesApi.md#getTemplateData) | **GET** /templates/{templateId}/data | Get template data fields |
+| [**getTemplateSchema()**](TemplatesApi.md#getTemplateSchema) | **GET** /templates/schema | Get schema |
 | [**getTemplates()**](TemplatesApi.md#getTemplates) | **GET** /templates | Get templates |
+| [**importTemplate()**](TemplatesApi.md#importTemplate) | **POST** /templates/import | Import template |
 | [**openEditor()**](TemplatesApi.md#openEditor) | **POST** /templates/{templateId}/editor | Open editor |
 | [**updateTemplate()**](TemplatesApi.md#updateTemplate) | **PUT** /templates/{templateId} | Update template |
 | [**validateTemplate()**](TemplatesApi.md#validateTemplate) | **POST** /templates/validate | Validate template |
@@ -18,7 +20,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `copyTemplate()`
 
 ```php
-copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\CreateTemplate201Response
+copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\InlineObject16
 ```
 
 Copy template
@@ -62,7 +64,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 
@@ -80,7 +82,7 @@ try {
 ## `createTemplate()`
 
 ```php
-createTemplate($template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate201Response
+createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject16
 ```
 
 Create template
@@ -122,7 +124,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 
@@ -199,7 +201,7 @@ void (empty response body)
 ## `getTemplate()`
 
 ```php
-getTemplate($template_id): \PDFGeneratorAPI\Model\CreateTemplate201Response
+getTemplate($template_id): \PDFGeneratorAPI\Model\InlineObject16
 ```
 
 Get template
@@ -241,7 +243,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 
@@ -259,7 +261,7 @@ try {
 ## `getTemplateData()`
 
 ```php
-getTemplateData($template_id): \PDFGeneratorAPI\Model\GetTemplateData200Response
+getTemplateData($template_id): \PDFGeneratorAPI\Model\InlineObject2
 ```
 
 Get template data fields
@@ -301,7 +303,64 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetTemplateData200Response**](../Model/GetTemplateData200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject2**](../Model/InlineObject2.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTemplateSchema()`
+
+```php
+getTemplateSchema(): object
+```
+
+Get schema
+
+Returns Template JSON Schema which defines the structure of the Template Definition.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getTemplateSchema();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TemplatesApi->getTemplateSchema: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
 
 ### Authorization
 
@@ -319,7 +378,7 @@ try {
 ## `getTemplates()`
 
 ```php
-getTemplates($name, $tags, $access, $page, $per_page): \PDFGeneratorAPI\Model\GetTemplates200Response
+getTemplates($name, $tags, $access, $page, $per_page): \PDFGeneratorAPI\Model\InlineObject4
 ```
 
 Get templates
@@ -369,7 +428,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetTemplates200Response**](../Model/GetTemplates200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject4**](../Model/InlineObject4.md)
 
 ### Authorization
 
@@ -384,10 +443,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `importTemplate()`
+
+```php
+importTemplate($import_template_request): \PDFGeneratorAPI\Model\InlineObject16
+```
+
+Import template
+
+Creates a template from existing PDF
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$import_template_request = new \PDFGeneratorAPI\Model\ImportTemplateRequest(); // \PDFGeneratorAPI\Model\ImportTemplateRequest | Import a PDF via URL or base64 string as template
+
+try {
+    $result = $apiInstance->importTemplate($import_template_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TemplatesApi->importTemplate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **import_template_request** | [**\PDFGeneratorAPI\Model\ImportTemplateRequest**](../Model/ImportTemplateRequest.md)| Import a PDF via URL or base64 string as template | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `openEditor()`
 
 ```php
-openEditor($template_id, $open_editor_request): \PDFGeneratorAPI\Model\OpenEditor200Response
+openEditor($template_id, $open_editor_request): \PDFGeneratorAPI\Model\InlineObject3
 ```
 
 Open editor
@@ -431,7 +550,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\OpenEditor200Response**](../Model/OpenEditor200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject3**](../Model/InlineObject3.md)
 
 ### Authorization
 
@@ -449,7 +568,7 @@ try {
 ## `updateTemplate()`
 
 ```php
-updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\CreateTemplate201Response
+updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\InlineObject16
 ```
 
 Update template
@@ -493,7 +612,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateTemplate201Response**](../Model/CreateTemplate201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 
@@ -511,7 +630,7 @@ try {
 ## `validateTemplate()`
 
 ```php
-validateTemplate($template_definition_new): \PDFGeneratorAPI\Model\ValidateTemplate200Response
+validateTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject1
 ```
 
 Validate template
@@ -553,7 +672,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\ValidateTemplate200Response**](../Model/ValidateTemplate200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject1**](../Model/InlineObject1.md)
 
 ### Authorization
 

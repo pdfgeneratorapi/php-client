@@ -9,8 +9,10 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | [**generateDocumentAsynchronous()**](DocumentsApi.md#generateDocumentAsynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generateDocumentBatch()**](DocumentsApi.md#generateDocumentBatch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generateDocumentBatchAsynchronous()**](DocumentsApi.md#generateDocumentBatchAsynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**getAsyncJobStatus()**](DocumentsApi.md#getAsyncJobStatus) | **GET** /documents/async/{jobId} | Get job status |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{publicId} | Get document |
 | [**getDocuments()**](DocumentsApi.md#getDocuments) | **GET** /documents | Get documents |
+| [**storeDocument()**](DocumentsApi.md#storeDocument) | **POST** /documents | Store document |
 
 
 ## `deleteDocument()`
@@ -75,7 +77,7 @@ void (empty response body)
 ## `generateDocument()`
 
 ```php
-generateDocument($generate_document_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+generateDocument($generate_document_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Generate document
@@ -117,7 +119,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -135,12 +137,12 @@ try {
 ## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Generate document (async)
 
-Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ```
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example response from callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ```
 
 ### Example
 
@@ -177,7 +179,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response**](../Model/GenerateDocumentAsynchronous201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
@@ -195,7 +197,7 @@ try {
 ## `generateDocumentBatch()`
 
 ```php
-generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Generate document (batch)
@@ -237,7 +239,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -255,12 +257,12 @@ try {
 ## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Generate document (batch + async)
 
-Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example payload for callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ```
+Merges template with data as asynchronous job and makes POST request to callback URL defined in the request. Request uses the same format as response of synchronous generation endpoint. The job id is also added to the callback request as header PDF-API-Job-Id  *Example response from callback URL:* ``` {   \"response\": \"https://us1.pdfgeneratorapi.com/share/12821/VBERi0xLjcKJeLjz9MKNyAwIG9i\",   \"meta\": {     \"name\": \"a2bd25b8921f3dc7a440fd7f427f90a4.pdf\",     \"display_name\": \"a2bd25b8921f3dc7a440fd7f427f90a4\",     \"encoding\": \"binary\",     \"content-type\": \"application/pdf\"   } } ```
 
 ### Example
 
@@ -297,7 +299,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateDocumentAsynchronous201Response**](../Model/GenerateDocumentAsynchronous201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
@@ -312,10 +314,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getAsyncJobStatus()`
+
+```php
+getAsyncJobStatus($job_id): \PDFGeneratorAPI\Model\InlineObject13
+```
+
+Get job status
+
+Returns status of an async job
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$job_id = 968b8a3a-e8ac-49cc-a670-25db545813ed; // string | Job id
+
+try {
+    $result = $apiInstance->getAsyncJobStatus($job_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->getAsyncJobStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **job_id** | **string**| Job id | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject13**](../Model/InlineObject13.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getDocument()`
 
 ```php
-getDocument($public_id): \PDFGeneratorAPI\Model\GetDocument200Response
+getDocument($public_id): \PDFGeneratorAPI\Model\InlineObject11
 ```
 
 Get document
@@ -357,7 +419,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetDocument200Response**](../Model/GetDocument200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
 
 ### Authorization
 
@@ -375,7 +437,7 @@ try {
 ## `getDocuments()`
 
 ```php
-getDocuments($template_id, $start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\GetDocuments200Response
+getDocuments($template_id, $start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\InlineObject15
 ```
 
 Get documents
@@ -425,7 +487,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetDocuments200Response**](../Model/GetDocuments200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject15**](../Model/InlineObject15.md)
 
 ### Authorization
 
@@ -434,6 +496,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `storeDocument()`
+
+```php
+storeDocument($store_document_request): \PDFGeneratorAPI\Model\InlineObject11
+```
+
+Store document
+
+Uploads a PDF as a URL or a base64 encoded string.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$store_document_request = new \PDFGeneratorAPI\Model\StoreDocumentRequest(); // \PDFGeneratorAPI\Model\StoreDocumentRequest | Document source and optional metadata. Exactly one of `file_base64` or `file_url` is required.
+
+try {
+    $result = $apiInstance->storeDocument($store_document_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->storeDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **store_document_request** | [**\PDFGeneratorAPI\Model\StoreDocumentRequest**](../Model/StoreDocumentRequest.md)| Document source and optional metadata. Exactly one of &#x60;file_base64&#x60; or &#x60;file_url&#x60; is required. | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

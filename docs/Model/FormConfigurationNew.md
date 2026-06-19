@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **string** | Form name | [optional]
 **actions** | [**\PDFGeneratorAPI\Model\FormConfigurationNewActionsInner[]**](FormConfigurationNewActionsInner.md) | Array of action configurations | [optional]
 **fields** | [**\PDFGeneratorAPI\Model\FormFieldsInner[]**](FormFieldsInner.md) | A list of form field objects | [optional]
+**configuration** | [**\PDFGeneratorAPI\Model\FormConfiguration**](FormConfiguration.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

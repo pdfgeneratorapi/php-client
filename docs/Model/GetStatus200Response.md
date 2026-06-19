@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api** | **string** |  | [optional] [default to 'ok']
-**chart_api** | **string** |  | [optional] [default to 'ok']
-**conversion_api** | **string** |  | [optional] [default to 'ok']
-**generator_api_sync** | **string** |  | [optional] [default to 'ok']
-**generator_api_async** | **string** |  | [optional] [default to 'ok']
+**api** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
+**chart_api** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
+**conversion_api** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
+**generator_api_sync** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
+**generator_api_async** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
+**e_invoice** | [**\PDFGeneratorAPI\Model\StatusParam**](StatusParam.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -9,13 +9,14 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | [**encryptDocument()**](ServicesApi.md#encryptDocument) | **POST** /pdfservices/encrypt | Encrypt document |
 | [**extractFormFields()**](ServicesApi.md#extractFormFields) | **POST** /pdfservices/form/fields | Extract form fields |
 | [**fillFormFields()**](ServicesApi.md#fillFormFields) | **POST** /pdfservices/form/fill | Fill form fields |
+| [**makeAccessible()**](ServicesApi.md#makeAccessible) | **POST** /pdfservices/make-accessible | Make accessible |
 | [**optimizeDocument()**](ServicesApi.md#optimizeDocument) | **POST** /pdfservices/optimize | Optimize document |
 
 
 ## `addWatermark()`
 
 ```php
-addWatermark($add_watermark_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+addWatermark($add_watermark_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Add watermark
@@ -57,7 +58,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -75,7 +76,7 @@ try {
 ## `decryptDocument()`
 
 ```php
-decryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+decryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Decrypt document
@@ -117,7 +118,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -135,7 +136,7 @@ try {
 ## `encryptDocument()`
 
 ```php
-encryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+encryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Encrypt document
@@ -177,7 +178,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -195,7 +196,7 @@ try {
 ## `extractFormFields()`
 
 ```php
-extractFormFields($extract_form_fields_request): \PDFGeneratorAPI\Model\ExtractFormFields200Response
+extractFormFields($extract_form_fields_request): \PDFGeneratorAPI\Model\InlineObject14
 ```
 
 Extract form fields
@@ -237,7 +238,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\ExtractFormFields200Response**](../Model/ExtractFormFields200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject14**](../Model/InlineObject14.md)
 
 ### Authorization
 
@@ -255,7 +256,7 @@ try {
 ## `fillFormFields()`
 
 ```php
-fillFormFields($fill_form_fields_request): \PDFGeneratorAPI\Model\AddWatermark201Response
+fillFormFields($fill_form_fields_request): \PDFGeneratorAPI\Model\InlineObject9
 ```
 
 Fill form fields
@@ -297,7 +298,67 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\AddWatermark201Response**](../Model/AddWatermark201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `makeAccessible()`
+
+```php
+makeAccessible($make_accessible_request): \PDFGeneratorAPI\Model\InlineObject9
+```
+
+Make accessible
+
+Tags a PDF document for accessibility from base64 string or a remote URL.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\ServicesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$make_accessible_request = new \PDFGeneratorAPI\Model\MakeAccessibleRequest(); // \PDFGeneratorAPI\Model\MakeAccessibleRequest
+
+try {
+    $result = $apiInstance->makeAccessible($make_accessible_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ServicesApi->makeAccessible: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **make_accessible_request** | [**\PDFGeneratorAPI\Model\MakeAccessibleRequest**](../Model/MakeAccessibleRequest.md)|  | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
 
 ### Authorization
 
@@ -315,7 +376,7 @@ try {
 ## `optimizeDocument()`
 
 ```php
-optimizeDocument($optimize_document_request): \PDFGeneratorAPI\Model\OptimizeDocument201Response
+optimizeDocument($optimize_document_request): \PDFGeneratorAPI\Model\InlineObject12
 ```
 
 Optimize document
@@ -357,7 +418,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\OptimizeDocument201Response**](../Model/OptimizeDocument201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject12**](../Model/InlineObject12.md)
 
 ### Authorization
 

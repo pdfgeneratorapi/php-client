@@ -4,18 +4,21 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createFrom()**](FormsApi.md#createFrom) | **POST** /forms | Create form |
+| [**createForm()**](FormsApi.md#createForm) | **POST** /forms | Create form |
 | [**deleteForm()**](FormsApi.md#deleteForm) | **DELETE** /forms/{formId} | Delete form |
 | [**getForm()**](FormsApi.md#getForm) | **GET** /forms/{formId} | Get form |
 | [**getForms()**](FormsApi.md#getForms) | **GET** /forms | Get forms |
+| [**importForm()**](FormsApi.md#importForm) | **POST** /forms/import | Import Form |
+| [**openFormBuilder()**](FormsApi.md#openFormBuilder) | **POST** /forms/open | Open new form builder |
+| [**openFormBuilderForExistingForm()**](FormsApi.md#openFormBuilderForExistingForm) | **POST** /forms/{formId}/open | Open existing form builder |
 | [**shareForm()**](FormsApi.md#shareForm) | **POST** /forms/{formId}/share | Share form |
 | [**updateForm()**](FormsApi.md#updateForm) | **PUT** /forms/{formId} | Update form |
 
 
-## `createFrom()`
+## `createForm()`
 
 ```php
-createFrom($form_configuration_new): \PDFGeneratorAPI\Model\CreateFrom201Response
+createForm($form_configuration_new): \PDFGeneratorAPI\Model\InlineObject17
 ```
 
 Create form
@@ -42,10 +45,10 @@ $apiInstance = new PDFGeneratorAPI\Api\FormsApi(
 $form_configuration_new = new \PDFGeneratorAPI\Model\FormConfigurationNew(); // \PDFGeneratorAPI\Model\FormConfigurationNew | Form configuration
 
 try {
-    $result = $apiInstance->createFrom($form_configuration_new);
+    $result = $apiInstance->createForm($form_configuration_new);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FormsApi->createFrom: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FormsApi->createForm: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -57,7 +60,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateFrom201Response**](../Model/CreateFrom201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
 
 ### Authorization
 
@@ -134,7 +137,7 @@ void (empty response body)
 ## `getForm()`
 
 ```php
-getForm($form_id): \PDFGeneratorAPI\Model\CreateFrom201Response
+getForm($form_id): \PDFGeneratorAPI\Model\InlineObject17
 ```
 
 Get form
@@ -176,7 +179,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateFrom201Response**](../Model/CreateFrom201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
 
 ### Authorization
 
@@ -194,7 +197,7 @@ try {
 ## `getForms()`
 
 ```php
-getForms($page, $per_page): \PDFGeneratorAPI\Model\GetForms200Response
+getForms($page, $per_page): \PDFGeneratorAPI\Model\InlineObject6
 ```
 
 Get forms
@@ -238,7 +241,184 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetForms200Response**](../Model/GetForms200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject6**](../Model/InlineObject6.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `importForm()`
+
+```php
+importForm($import_form_request): \PDFGeneratorAPI\Model\InlineObject17
+```
+
+Import Form
+
+Creates a new form based on editable PDF
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\FormsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$import_form_request = new \PDFGeneratorAPI\Model\ImportFormRequest(); // \PDFGeneratorAPI\Model\ImportFormRequest | Import editable PDF via URL or base64 string as form
+
+try {
+    $result = $apiInstance->importForm($import_form_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FormsApi->importForm: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **import_form_request** | [**\PDFGeneratorAPI\Model\ImportFormRequest**](../Model/ImportFormRequest.md)| Import editable PDF via URL or base64 string as form | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `openFormBuilder()`
+
+```php
+openFormBuilder(): \PDFGeneratorAPI\Model\InlineObject19
+```
+
+Open new form builder
+
+Creates a new Form Builder session and returns a URL that can be used to open the embeddable Form Builder for creating a new form.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\FormsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->openFormBuilder();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FormsApi->openFormBuilder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `openFormBuilderForExistingForm()`
+
+```php
+openFormBuilderForExistingForm($form_id): \PDFGeneratorAPI\Model\InlineObject19
+```
+
+Open existing form builder
+
+Creates a Form Builder session for editing an existing form and returns a URL that can be used to open the embeddable Form Builder.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\FormsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$form_id = 1; // int | Form unique identifier
+
+try {
+    $result = $apiInstance->openFormBuilderForExistingForm($form_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FormsApi->openFormBuilderForExistingForm: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **form_id** | **int**| Form unique identifier | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 
@@ -256,7 +436,7 @@ try {
 ## `shareForm()`
 
 ```php
-shareForm($form_id): \PDFGeneratorAPI\Model\ShareForm201Response
+shareForm($form_id): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Share form
@@ -298,7 +478,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\ShareForm201Response**](../Model/ShareForm201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -316,7 +496,7 @@ try {
 ## `updateForm()`
 
 ```php
-updateForm($form_id, $form_configuration_new): \PDFGeneratorAPI\Model\CreateFrom201Response
+updateForm($form_id, $form_configuration_new): \PDFGeneratorAPI\Model\InlineObject17
 ```
 
 Update form
@@ -360,7 +540,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateFrom201Response**](../Model/CreateFrom201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
 
 ### Authorization
 

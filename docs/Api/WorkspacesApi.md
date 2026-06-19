@@ -13,7 +13,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `createWorkspace()`
 
 ```php
-createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\CreateWorkspace201Response
+createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Create workspace
@@ -55,7 +55,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateWorkspace201Response**](../Model/CreateWorkspace201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ void (empty response body)
 ## `getWorkspace()`
 
 ```php
-getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\CreateWorkspace201Response
+getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Get workspace
@@ -174,7 +174,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\CreateWorkspace201Response**](../Model/CreateWorkspace201Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ try {
 ## `getWorkspaces()`
 
 ```php
-getWorkspaces($page, $per_page): \PDFGeneratorAPI\Model\GetWorkspaces200Response
+getWorkspaces($page, $per_page): \PDFGeneratorAPI\Model\InlineObject5
 ```
 
 Get workspaces
@@ -236,7 +236,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GetWorkspaces200Response**](../Model/GetWorkspaces200Response.md)
+[**\PDFGeneratorAPI\Model\InlineObject5**](../Model/InlineObject5.md)
 
 ### Authorization
 
