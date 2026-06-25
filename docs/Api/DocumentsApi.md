@@ -4,13 +4,15 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{publicId} | Delete document |
+| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{publicId}/actions | Delete document |
 | [**generateDocument()**](DocumentsApi.md#generateDocument) | **POST** /documents/generate | Generate document |
 | [**generateDocumentAsynchronous()**](DocumentsApi.md#generateDocumentAsynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generateDocumentBatch()**](DocumentsApi.md#generateDocumentBatch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generateDocumentBatchAsynchronous()**](DocumentsApi.md#generateDocumentBatchAsynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
 | [**getAsyncJobStatus()**](DocumentsApi.md#getAsyncJobStatus) | **GET** /documents/async/{jobId} | Get job status |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{publicId} | Get document |
+| [**getDocumentActions()**](DocumentsApi.md#getDocumentActions) | **GET** /documents/{publicId}/actions | Get document actions |
+| [**getDocumentVersions()**](DocumentsApi.md#getDocumentVersions) | **GET** /documents/{publicId}/versions | Get document versions |
 | [**getDocuments()**](DocumentsApi.md#getDocuments) | **GET** /documents | Get documents |
 | [**storeDocument()**](DocumentsApi.md#storeDocument) | **POST** /documents | Store document |
 
@@ -137,7 +139,7 @@ try {
 ## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject20
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Generate document (async)
@@ -179,7 +181,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -257,7 +259,7 @@ try {
 ## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject20
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Generate document (batch + async)
@@ -299,7 +301,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -420,6 +422,126 @@ try {
 ### Return type
 
 [**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDocumentActions()`
+
+```php
+getDocumentActions($public_id): \PDFGeneratorAPI\Model\InlineObject17
+```
+
+Get document actions
+
+Returns a list of actions performed on a stored document
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+
+try {
+    $result = $apiInstance->getDocumentActions($public_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->getDocumentActions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDocumentVersions()`
+
+```php
+getDocumentVersions($public_id): \PDFGeneratorAPI\Model\InlineObject16
+```
+
+Get document versions
+
+Returns a list of versions for a stored document
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+
+try {
+    $result = $apiInstance->getDocumentVersions($public_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->getDocumentVersions: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 

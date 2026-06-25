@@ -74,7 +74,7 @@ void (empty response body)
 ## `getTemplateVersion()`
 
 ```php
-getTemplateVersion($template_id, $template_version): \PDFGeneratorAPI\Model\InlineObject16
+getTemplateVersion($template_id, $template_version): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Get template version
@@ -118,7 +118,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
