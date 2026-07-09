@@ -59,6 +59,9 @@ docs/Model/GenerateDocumentRequest.md
 docs/Model/GenerateQRCode201Response.md
 docs/Model/GenerateQRCode201ResponseMeta.md
 docs/Model/GenerateQRCodeRequest.md
+docs/Model/GenerateViewerUrl200Response.md
+docs/Model/GenerateViewerUrl200ResponseMeta.md
+docs/Model/GenerateViewerUrlRequest.md
 docs/Model/GetStatus200Response.md
 docs/Model/GetTemplateLibrary200Response.md
 docs/Model/GetTemplateVersion422Response.md
@@ -124,6 +127,7 @@ docs/Model/OptimizeDocumentRequest.md
 docs/Model/OptimizeUrl.md
 docs/Model/OutputParam.md
 docs/Model/PaginationMeta.md
+docs/Model/PrefillParam.md
 docs/Model/PromoteTemplateVersion200Response.md
 docs/Model/PublicTemplateLibraryItem.md
 docs/Model/StatusParam.md
@@ -216,6 +220,9 @@ src/Model/GenerateDocumentRequest.php
 src/Model/GenerateQRCode201Response.php
 src/Model/GenerateQRCode201ResponseMeta.php
 src/Model/GenerateQRCodeRequest.php
+src/Model/GenerateViewerUrl200Response.php
+src/Model/GenerateViewerUrl200ResponseMeta.php
+src/Model/GenerateViewerUrlRequest.php
 src/Model/GetStatus200Response.php
 src/Model/GetTemplateLibrary200Response.php
 src/Model/GetTemplateVersion422Response.php
@@ -282,6 +289,7 @@ src/Model/OptimizeDocumentRequest.php
 src/Model/OptimizeUrl.php
 src/Model/OutputParam.php
 src/Model/PaginationMeta.php
+src/Model/PrefillParam.php
 src/Model/PromoteTemplateVersion200Response.php
 src/Model/PublicTemplateLibraryItem.php
 src/Model/StatusParam.php
@@ -369,6 +377,9 @@ test/Model/GenerateDocumentRequestTest.php
 test/Model/GenerateQRCode201ResponseMetaTest.php
 test/Model/GenerateQRCode201ResponseTest.php
 test/Model/GenerateQRCodeRequestTest.php
+test/Model/GenerateViewerUrl200ResponseMetaTest.php
+test/Model/GenerateViewerUrl200ResponseTest.php
+test/Model/GenerateViewerUrlRequestTest.php
 test/Model/GetStatus200ResponseTest.php
 test/Model/GetTemplateLibrary200ResponseTest.php
 test/Model/GetTemplateVersion422ResponseTest.php
@@ -434,6 +445,7 @@ test/Model/OptimizeDocumentRequestTest.php
 test/Model/OptimizeUrlTest.php
 test/Model/OutputParamTest.php
 test/Model/PaginationMetaTest.php
+test/Model/PrefillParamTest.php
 test/Model/PromoteTemplateVersion200ResponseTest.php
 test/Model/PublicTemplateLibraryItemTest.php
 test/Model/StatusParamTest.php

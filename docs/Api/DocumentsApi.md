@@ -4,11 +4,12 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{publicId}/actions | Delete document |
+| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /documents/{publicId} | Delete document |
 | [**generateDocument()**](DocumentsApi.md#generateDocument) | **POST** /documents/generate | Generate document |
 | [**generateDocumentAsynchronous()**](DocumentsApi.md#generateDocumentAsynchronous) | **POST** /documents/generate/async | Generate document (async) |
 | [**generateDocumentBatch()**](DocumentsApi.md#generateDocumentBatch) | **POST** /documents/generate/batch | Generate document (batch) |
 | [**generateDocumentBatchAsynchronous()**](DocumentsApi.md#generateDocumentBatchAsynchronous) | **POST** /documents/generate/batch/async | Generate document (batch + async) |
+| [**generateViewerUrl()**](DocumentsApi.md#generateViewerUrl) | **POST** /documents/{publicId} | Get document with prefill |
 | [**getAsyncJobStatus()**](DocumentsApi.md#getAsyncJobStatus) | **GET** /documents/async/{jobId} | Get job status |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{publicId} | Get document |
 | [**getDocumentActions()**](DocumentsApi.md#getDocumentActions) | **GET** /documents/{publicId}/actions | Get document actions |
@@ -302,6 +303,68 @@ try {
 ### Return type
 
 [**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `generateViewerUrl()`
+
+```php
+generateViewerUrl($public_id, $generate_viewer_url_request): \PDFGeneratorAPI\Model\GenerateViewerUrl200Response
+```
+
+Get document with prefill
+
+Returns a URL for a stored document, optionally with viewer prefill data. The prefill is encrypted server-side and embedded in the viewer URL, so the caller does not have to handle encryption. Prefill is only applied when `output` is `viewer`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+$generate_viewer_url_request = new \PDFGeneratorAPI\Model\GenerateViewerUrlRequest(); // \PDFGeneratorAPI\Model\GenerateViewerUrlRequest | Optional response format and viewer prefill data.
+
+try {
+    $result = $apiInstance->generateViewerUrl($public_id, $generate_viewer_url_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->generateViewerUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+| **generate_viewer_url_request** | [**\PDFGeneratorAPI\Model\GenerateViewerUrlRequest**](../Model/GenerateViewerUrlRequest.md)| Optional response format and viewer prefill data. | [optional] |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\GenerateViewerUrl200Response**](../Model/GenerateViewerUrl200Response.md)
 
 ### Authorization
 
