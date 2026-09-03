@@ -20,7 +20,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `copyTemplate()`
 
 ```php
-copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\InlineObject18
+copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Copy template
@@ -64,7 +64,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ try {
 ## `createTemplate()`
 
 ```php
-createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject18
+createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Create template
@@ -124,7 +124,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ void (empty response body)
 ## `getTemplate()`
 
 ```php
-getTemplate($template_id): \PDFGeneratorAPI\Model\InlineObject18
+getTemplate($template_id): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Get template
@@ -243,7 +243,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ try {
 ## `importTemplate()`
 
 ```php
-importTemplate($import_template_request): \PDFGeneratorAPI\Model\InlineObject18
+importTemplate($import_template_request): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Import template
@@ -488,7 +488,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 
@@ -568,7 +568,7 @@ try {
 ## `updateTemplate()`
 
 ```php
-updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\InlineObject18
+updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Update template
@@ -612,7 +612,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 

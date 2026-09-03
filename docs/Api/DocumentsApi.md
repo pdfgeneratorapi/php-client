@@ -13,6 +13,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | [**getAsyncJobStatus()**](DocumentsApi.md#getAsyncJobStatus) | **GET** /documents/async/{jobId} | Get job status |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /documents/{publicId} | Get document |
 | [**getDocumentActions()**](DocumentsApi.md#getDocumentActions) | **GET** /documents/{publicId}/actions | Get document actions |
+| [**getDocumentSignatures()**](DocumentsApi.md#getDocumentSignatures) | **GET** /documents/{publicId}/signatures | Validate document signatures |
 | [**getDocumentVersions()**](DocumentsApi.md#getDocumentVersions) | **GET** /documents/{publicId}/versions | Get document versions |
 | [**getDocuments()**](DocumentsApi.md#getDocuments) | **GET** /documents | Get documents |
 | [**storeDocument()**](DocumentsApi.md#storeDocument) | **POST** /documents | Store document |
@@ -140,7 +141,7 @@ try {
 ## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject23
 ```
 
 Generate document (async)
@@ -182,7 +183,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
+[**\PDFGeneratorAPI\Model\InlineObject23**](../Model/InlineObject23.md)
 
 ### Authorization
 
@@ -260,7 +261,7 @@ try {
 ## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject23
 ```
 
 Generate document (batch + async)
@@ -302,7 +303,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
+[**\PDFGeneratorAPI\Model\InlineObject23**](../Model/InlineObject23.md)
 
 ### Authorization
 
@@ -502,7 +503,7 @@ try {
 ## `getDocumentActions()`
 
 ```php
-getDocumentActions($public_id): \PDFGeneratorAPI\Model\InlineObject17
+getDocumentActions($public_id): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Get document actions
@@ -541,6 +542,68 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **public_id** | **string**| Resource public id | |
+
+### Return type
+
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+
+### Authorization
+
+[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDocumentSignatures()`
+
+```php
+getDocumentSignatures($public_id, $version): \PDFGeneratorAPI\Model\InlineObject17
+```
+
+Validate document signatures
+
+Reports on every digital signature a stored document carries: who signed, when a timestamp authority attested it, whether the signed bytes are unchanged and whether the certificate chains to a trusted root.  Facts are reported separately from the verdict, because a reader and a validation library can disagree in both directions. `status` reduces them to one answer, worst case first.  Each request consumes one credit. A request that reports `unavailable` — signature validation not being enabled on the deployment — validates nothing and is not charged.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: JSONWebTokenAuth
+$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new PDFGeneratorAPI\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$public_id = bac8381bce1982e5f6957a0f52371336; // string | Resource public id
+$version = 5f3c2b1a9d8e7f6a; // string | Which stored version to report on. A version identifier reports on that version, `initial` on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding.
+
+try {
+    $result = $apiInstance->getDocumentSignatures($public_id, $version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->getDocumentSignatures: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **public_id** | **string**| Resource public id | |
+| **version** | **string**| Which stored version to report on. A version identifier reports on that version, &#x60;initial&#x60; on the document as first generated. Defaults to the latest version. A version is always reported on as itself: reporting the latest would describe bytes the caller is not holding. | [optional] |
 
 ### Return type
 

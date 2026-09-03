@@ -31,6 +31,8 @@ docs/Model/CreateWorkspaceRequest.md
 docs/Model/DataBatchInner.md
 docs/Model/Document.md
 docs/Model/DocumentAction.md
+docs/Model/DocumentSignature.md
+docs/Model/DocumentSignatures.md
 docs/Model/DocumentUser.md
 docs/Model/DocumentVersion.md
 docs/Model/EncryptAndDecryptBase64.md
@@ -94,11 +96,11 @@ docs/Model/InlineObject19.md
 docs/Model/InlineObject1Response.md
 docs/Model/InlineObject2.md
 docs/Model/InlineObject20.md
-docs/Model/InlineObject20Meta.md
 docs/Model/InlineObject21.md
+docs/Model/InlineObject21Meta.md
 docs/Model/InlineObject22.md
-docs/Model/InlineObject22Response.md
 docs/Model/InlineObject23.md
+docs/Model/InlineObject23Response.md
 docs/Model/InlineObject24.md
 docs/Model/InlineObject25.md
 docs/Model/InlineObject26.md
@@ -106,6 +108,8 @@ docs/Model/InlineObject27.md
 docs/Model/InlineObject28.md
 docs/Model/InlineObject29.md
 docs/Model/InlineObject3.md
+docs/Model/InlineObject30.md
+docs/Model/InlineObject31.md
 docs/Model/InlineObject4.md
 docs/Model/InlineObject5.md
 docs/Model/InlineObject6.md
@@ -192,6 +196,8 @@ src/Model/CreateWorkspaceRequest.php
 src/Model/DataBatchInner.php
 src/Model/Document.php
 src/Model/DocumentAction.php
+src/Model/DocumentSignature.php
+src/Model/DocumentSignatures.php
 src/Model/DocumentUser.php
 src/Model/DocumentVersion.php
 src/Model/EncryptAndDecryptBase64.php
@@ -255,11 +261,11 @@ src/Model/InlineObject19.php
 src/Model/InlineObject1Response.php
 src/Model/InlineObject2.php
 src/Model/InlineObject20.php
-src/Model/InlineObject20Meta.php
 src/Model/InlineObject21.php
+src/Model/InlineObject21Meta.php
 src/Model/InlineObject22.php
-src/Model/InlineObject22Response.php
 src/Model/InlineObject23.php
+src/Model/InlineObject23Response.php
 src/Model/InlineObject24.php
 src/Model/InlineObject25.php
 src/Model/InlineObject26.php
@@ -267,6 +273,8 @@ src/Model/InlineObject27.php
 src/Model/InlineObject28.php
 src/Model/InlineObject29.php
 src/Model/InlineObject3.php
+src/Model/InlineObject30.php
+src/Model/InlineObject31.php
 src/Model/InlineObject4.php
 src/Model/InlineObject5.php
 src/Model/InlineObject6.php
@@ -348,6 +356,8 @@ test/Model/CreateFacturXEInvoiceRequestTest.php
 test/Model/CreateWorkspaceRequestTest.php
 test/Model/DataBatchInnerTest.php
 test/Model/DocumentActionTest.php
+test/Model/DocumentSignatureTest.php
+test/Model/DocumentSignaturesTest.php
 test/Model/DocumentTest.php
 test/Model/DocumentUserTest.php
 test/Model/DocumentVersionTest.php
@@ -409,11 +419,11 @@ test/Model/InlineObject18Test.php
 test/Model/InlineObject19Test.php
 test/Model/InlineObject1ResponseTest.php
 test/Model/InlineObject1Test.php
-test/Model/InlineObject20MetaTest.php
 test/Model/InlineObject20Test.php
+test/Model/InlineObject21MetaTest.php
 test/Model/InlineObject21Test.php
-test/Model/InlineObject22ResponseTest.php
 test/Model/InlineObject22Test.php
+test/Model/InlineObject23ResponseTest.php
 test/Model/InlineObject23Test.php
 test/Model/InlineObject24Test.php
 test/Model/InlineObject25Test.php
@@ -422,6 +432,8 @@ test/Model/InlineObject27Test.php
 test/Model/InlineObject28Test.php
 test/Model/InlineObject29Test.php
 test/Model/InlineObject2Test.php
+test/Model/InlineObject30Test.php
+test/Model/InlineObject31Test.php
 test/Model/InlineObject3Test.php
 test/Model/InlineObject4Test.php
 test/Model/InlineObject5Test.php

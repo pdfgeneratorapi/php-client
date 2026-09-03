@@ -67,7 +67,7 @@ No authorization required
 ## `getTemplateLibraryItem()`
 
 ```php
-getTemplateLibraryItem($public_id): \PDFGeneratorAPI\Model\InlineObject18
+getTemplateLibraryItem($public_id): \PDFGeneratorAPI\Model\InlineObject19
 ```
 
 Open template from the library
@@ -105,7 +105,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
 
 ### Authorization
 

@@ -18,7 +18,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `createForm()`
 
 ```php
-createForm($form_configuration_new): \PDFGeneratorAPI\Model\InlineObject19
+createForm($form_configuration_new): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Create form
@@ -60,7 +60,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ void (empty response body)
 ## `getForm()`
 
 ```php
-getForm($form_id): \PDFGeneratorAPI\Model\InlineObject19
+getForm($form_id): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Get form
@@ -179,7 +179,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ try {
 ## `importForm()`
 
 ```php
-importForm($import_form_request): \PDFGeneratorAPI\Model\InlineObject19
+importForm($import_form_request): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Import Form
@@ -301,7 +301,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
@@ -319,7 +319,7 @@ try {
 ## `openFormBuilder()`
 
 ```php
-openFormBuilder(): \PDFGeneratorAPI\Model\InlineObject21
+openFormBuilder(): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Open new form builder
@@ -358,7 +358,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject21**](../Model/InlineObject21.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ This endpoint does not need any parameter.
 ## `openFormBuilderForExistingForm()`
 
 ```php
-openFormBuilderForExistingForm($form_id): \PDFGeneratorAPI\Model\InlineObject21
+openFormBuilderForExistingForm($form_id): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Open existing form builder
@@ -418,7 +418,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject21**](../Model/InlineObject21.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ try {
 ## `shareForm()`
 
 ```php
-shareForm($form_id): \PDFGeneratorAPI\Model\InlineObject20
+shareForm($form_id): \PDFGeneratorAPI\Model\InlineObject21
 ```
 
 Share form
@@ -478,7 +478,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
+[**\PDFGeneratorAPI\Model\InlineObject21**](../Model/InlineObject21.md)
 
 ### Authorization
 
@@ -496,7 +496,7 @@ try {
 ## `updateForm()`
 
 ```php
-updateForm($form_id, $form_configuration_new): \PDFGeneratorAPI\Model\InlineObject19
+updateForm($form_id, $form_configuration_new): \PDFGeneratorAPI\Model\InlineObject20
 ```
 
 Update form
@@ -540,7 +540,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject20**](../Model/InlineObject20.md)
 
 ### Authorization
 
