@@ -7,6 +7,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 | [**createForm()**](FormsApi.md#createForm) | **POST** /forms | Create form |
 | [**deleteForm()**](FormsApi.md#deleteForm) | **DELETE** /forms/{formId} | Delete form |
 | [**getForm()**](FormsApi.md#getForm) | **GET** /forms/{formId} | Get form |
+| [**getFormSchema()**](FormsApi.md#getFormSchema) | **GET** /forms/schema | Get schema |
 | [**getForms()**](FormsApi.md#getForms) | **GET** /forms | Get forms |
 | [**importForm()**](FormsApi.md#importForm) | **POST** /forms/import | Import Form |
 | [**openFormBuilder()**](FormsApi.md#openFormBuilder) | **POST** /forms/open | Open new form builder |
@@ -194,10 +195,63 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFormSchema()`
+
+```php
+getFormSchema(): object
+```
+
+Get schema
+
+Returns Form JSON Schema which defines the structure of the Form Definition.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new PDFGeneratorAPI\Api\FormsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getFormSchema();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FormsApi->getFormSchema: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getForms()`
 
 ```php
-getForms($page, $per_page): \PDFGeneratorAPI\Model\InlineObject6
+getForms($page, $per_page, $order_by, $order_direction, $search): \PDFGeneratorAPI\Model\InlineObject6
 ```
 
 Get forms
@@ -223,9 +277,12 @@ $apiInstance = new PDFGeneratorAPI\Api\FormsApi(
 );
 $page = 1; // int | Pagination: page to return
 $per_page = 20; // int | Pagination: How many records to return per page
+$order_by = name; // string | Field to sort the forms by
+$order_direction = asc; // string | Sort direction
+$search = Certificate; // string | Returns forms whose name or ID contains the search value
 
 try {
-    $result = $apiInstance->getForms($page, $per_page);
+    $result = $apiInstance->getForms($page, $per_page, $order_by, $order_direction, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FormsApi->getForms: ', $e->getMessage(), PHP_EOL;
@@ -238,6 +295,9 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| Pagination: page to return | [optional] [default to 1] |
 | **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
+| **order_by** | **string**| Field to sort the forms by | [optional] [default to &#39;id&#39;] |
+| **order_direction** | **string**| Sort direction | [optional] [default to &#39;desc&#39;] |
+| **search** | **string**| Returns forms whose name or ID contains the search value | [optional] |
 
 ### Return type
 
@@ -264,7 +324,7 @@ importForm($import_form_request): \PDFGeneratorAPI\Model\InlineObject20
 
 Import Form
 
-Creates a new form based on editable PDF
+Creates a new form based on editable PDF. Form fields are created from the editable fields of the PDF. The optional `form` object sets the form name, template, actions and configuration.
 
 ### Example
 
