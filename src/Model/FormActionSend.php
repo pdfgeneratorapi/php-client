@@ -36,7 +36,7 @@ use \PDFGeneratorAPI\ObjectSerializer;
  * FormActionSend Class Doc Comment
  *
  * @category Class
- * @description Sends the generated document via HTTP POST request to the specified URL.
+ * @description Posts the submitted answers as JSON to the specified HTTPS URL. When the form also stores the document (store_document) and has a template, the request includes the generated document as well; otherwise only the answers are sent.
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

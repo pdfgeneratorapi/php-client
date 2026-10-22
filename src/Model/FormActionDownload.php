@@ -36,7 +36,7 @@ use \PDFGeneratorAPI\ObjectSerializer;
  * FormActionDownload Class Doc Comment
  *
  * @category Class
- * @description Key-value pair of action configuration.
+ * @description Lets the person who fills in the form download the generated document.
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

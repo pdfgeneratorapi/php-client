@@ -36,7 +36,7 @@ use \PDFGeneratorAPI\ObjectSerializer;
  * FormActionSign Class Doc Comment
  *
  * @category Class
- * @description Asks the person who submitted the form to sign the generated document.
+ * @description Lets the person who fills in the form view and sign the generated document.
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

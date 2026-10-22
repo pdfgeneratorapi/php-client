@@ -36,7 +36,7 @@ use \PDFGeneratorAPI\ObjectSerializer;
  * FormActionStore Class Doc Comment
  *
  * @category Class
- * @description Key-value pair of action configuration.
+ * @description Saves the generated document to Document Storage.
  * @package  PDFGeneratorAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
