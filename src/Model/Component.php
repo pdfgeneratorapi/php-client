@@ -292,6 +292,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CLS_HEADER_COMPONENT = 'headerComponent';
     public const CLS_FOOTER_COMPONENT = 'footerComponent';
     public const CLS_RECTANGLE_COMPONENT = 'rectangleComponent';
+    public const CLS_ELLIPSE_COMPONENT = 'ellipseComponent';
     public const CLS_VLINE_COMPONENT = 'vlineComponent';
     public const CLS_HLINE_COMPONENT = 'hlineComponent';
     public const CLS_PAGENUMBER_COMPONENT = 'pagenumberComponent';
@@ -322,6 +323,7 @@ class Component implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CLS_HEADER_COMPONENT,
             self::CLS_FOOTER_COMPONENT,
             self::CLS_RECTANGLE_COMPONENT,
+            self::CLS_ELLIPSE_COMPONENT,
             self::CLS_VLINE_COMPONENT,
             self::CLS_HLINE_COMPONENT,
             self::CLS_PAGENUMBER_COMPONENT,
