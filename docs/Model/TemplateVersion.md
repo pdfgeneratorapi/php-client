@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **checksum** | **string** |  | [optional]
 **user_id** | **int** |  | [optional]
 **user_name** | **string** |  | [optional]
+**user_email** | **string** | Identifier of the workspace that created the version | [optional]
 **is_production** | **bool** |  | [optional]
 **created_at** | **string** |  | [optional]
 **updated_at** | **string** |  | [optional]

@@ -16,7 +16,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `addWatermark()`
 
 ```php
-addWatermark($add_watermark_request): \PDFGeneratorAPI\Model\InlineObject9
+addWatermark($add_watermark_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Add watermark
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `decryptDocument()`
 
 ```php
-decryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject9
+decryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Decrypt document
@@ -118,7 +118,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ try {
 ## `encryptDocument()`
 
 ```php
-encryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject9
+encryptDocument($encrypt_document_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Encrypt document
@@ -178,7 +178,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ try {
 ## `extractFormFields()`
 
 ```php
-extractFormFields($extract_form_fields_request): \PDFGeneratorAPI\Model\InlineObject14
+extractFormFields($extract_form_fields_request): \PDFGeneratorAPI\Model\InlineObject13
 ```
 
 Extract form fields
@@ -238,7 +238,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject14**](../Model/InlineObject14.md)
+[**\PDFGeneratorAPI\Model\InlineObject13**](../Model/InlineObject13.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ try {
 ## `fillFormFields()`
 
 ```php
-fillFormFields($fill_form_fields_request): \PDFGeneratorAPI\Model\InlineObject9
+fillFormFields($fill_form_fields_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Fill form fields
@@ -298,7 +298,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ try {
 ## `makeAccessible()`
 
 ```php
-makeAccessible($make_accessible_request): \PDFGeneratorAPI\Model\InlineObject9
+makeAccessible($make_accessible_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Make accessible
@@ -358,7 +358,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ try {
 ## `optimizeDocument()`
 
 ```php
-optimizeDocument($optimize_document_request): \PDFGeneratorAPI\Model\InlineObject12
+optimizeDocument($optimize_document_request): \PDFGeneratorAPI\Model\InlineObject11
 ```
 
 Optimize document
@@ -418,7 +418,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject12**](../Model/InlineObject12.md)
+[**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
 
 ### Authorization
 

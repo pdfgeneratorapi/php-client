@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_id** | **string** | UUID of the async job. | [optional]
-**status** | **string** | Status of the async job. | [optional]
+**response** | [**array<string,\PDFGeneratorAPI\Model\InlineObject13ResponseValue>**](InlineObject13ResponseValue.md) | Form fields extracted from the PDF document | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

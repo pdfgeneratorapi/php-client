@@ -12,7 +12,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `convertHTML2PDF()`
 
 ```php
-convertHTML2PDF($convert_html2_pdf_request): \PDFGeneratorAPI\Model\InlineObject9
+convertHTML2PDF($convert_html2_pdf_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 HTML to PDF
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `convertPDF2Image()`
 
 ```php
-convertPDF2Image($convert_pdf2_image_request): \PDFGeneratorAPI\Model\InlineObject10
+convertPDF2Image($convert_pdf2_image_request): \SplFileObject
 ```
 
 PDF to Image
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject10**](../Model/InlineObject10.md)
+**\SplFileObject**
 
 ### Authorization
 
@@ -123,7 +123,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: `application/zip`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -132,7 +132,7 @@ try {
 ## `convertURL2PDF()`
 
 ```php
-convertURL2PDF($convert_url2_pdf_request): \PDFGeneratorAPI\Model\InlineObject9
+convertURL2PDF($convert_url2_pdf_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 URL to PDF
@@ -174,7 +174,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 

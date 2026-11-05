@@ -73,12 +73,12 @@ try {
 ## `createFacturXEInvoice()`
 
 ```php
-createFacturXEInvoice($create_factur_xe_invoice_request): \PDFGeneratorAPI\Model\InlineObject9
+createFacturXEInvoice($create_factur_xe_invoice_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Create Factur-X eInvoice
 
-This endpoint transforms a JSON payload a Factur-X e-invoice that is fully compliant with the European EN 16931 standard. The generated output is always a PDF document, embedding a structured CII (Cross-Industry Invoice) XML according to the Factur-X format into a human-readable invoice, ensuring interoperability across B2B and B2G platforms. The JSON payload follows Peppol BIS Billing 3.0 UBL Invoice described here: https://docs.peppol.eu/poacc/billing/3.0/
+This endpoint transforms a JSON payload a Factur-X e-invoice that is fully compliant with the European EN 16931 standard. The generated output is always a PDF document, embedding a structured CII (Cross-Industry Invoice) XML according to the Factur-X format into a human-readable invoice, ensuring interoperability across B2B and B2G platforms. The JSON payload follows Peppol BIS Billing 3.0 UBL Invoice described here: https://docs.peppol.eu/poacc/billing/3.0/ Preview mode (`testing: true`) is not available for Factur-X.
 
 ### Example
 
@@ -115,7 +115,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ try {
 ## `createXRechnungEInvoice()`
 
 ```php
-createXRechnungEInvoice($create_e_invoice_request): \PDFGeneratorAPI\Model\InlineObject
+createXRechnungEInvoice($create_x_rechnung_e_invoice_request): \PDFGeneratorAPI\Model\InlineObject
 ```
 
 Create XRechnung eInvoice
@@ -157,10 +157,10 @@ $apiInstance = new PDFGeneratorAPI\Api\EInvoicesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_e_invoice_request = new \PDFGeneratorAPI\Model\CreateEInvoiceRequest(); // \PDFGeneratorAPI\Model\CreateEInvoiceRequest | eInvoice conversion
+$create_x_rechnung_e_invoice_request = new \PDFGeneratorAPI\Model\CreateXRechnungEInvoiceRequest(); // \PDFGeneratorAPI\Model\CreateXRechnungEInvoiceRequest | eInvoice conversion
 
 try {
-    $result = $apiInstance->createXRechnungEInvoice($create_e_invoice_request);
+    $result = $apiInstance->createXRechnungEInvoice($create_x_rechnung_e_invoice_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EInvoicesApi->createXRechnungEInvoice: ', $e->getMessage(), PHP_EOL;
@@ -171,7 +171,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_e_invoice_request** | [**\PDFGeneratorAPI\Model\CreateEInvoiceRequest**](../Model/CreateEInvoiceRequest.md)| eInvoice conversion | |
+| **create_x_rechnung_e_invoice_request** | [**\PDFGeneratorAPI\Model\CreateXRechnungEInvoiceRequest**](../Model/CreateXRechnungEInvoiceRequest.md)| eInvoice conversion | |
 
 ### Return type
 
@@ -193,7 +193,7 @@ try {
 ## `getEInvoiceSchema()`
 
 ```php
-getEInvoiceSchema(): object
+getEInvoiceSchema(): \PDFGeneratorAPI\Model\GetEInvoiceSchema200Response
 ```
 
 Get schema
@@ -207,15 +207,11 @@ Returns e-invoice JSON schema which defines the structure of the e-invoice.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: JSONWebTokenAuth
-$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new PDFGeneratorAPI\Api\EInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -232,11 +228,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**\PDFGeneratorAPI\Model\GetEInvoiceSchema200Response**](../Model/GetEInvoiceSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

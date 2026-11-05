@@ -173,59 +173,77 @@ You can also use [jwt.io](https://jwt.io/) to generate test tokens for your API 
 
 # Error codes
 
+Every error response is a JSON object with a `message` string. Request validation failures (422) also include an `errors` object keyed by the field that failed.
+
+```json
+{
+  "message": "The identifier field is required.",
+  "errors": {
+    "identifier": ["The identifier field is required."]
+  }
+}
+```
+
 | Code   | Description                    |
 |--------|--------------------------------|
+| 400    | Bad Request                    |
 | 401    | Unauthorized                   |
 | 402    | Payment Required               |
 | 403    | Forbidden                      |
 | 404    | Not Found                      |
+| 405    | Method Not Allowed             |
+| 409    | Conflict                       |
+| 410    | Gone                           |
 | 422    | Unprocessable Entity           |
 | 429    | Too Many Requests              |
 | 500    | Internal Server Error          |
+| 503    | Service Unavailable            |
 
 ## 401 Unauthorized
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Authentication failed: request expired                                  |
-| Authentication failed: workspace missing                                |
-| Authentication failed: key missing                                      |
-| Authentication failed: property 'iss' (issuer) missing in JWT           |
-| Authentication failed: property 'sub' (subject) missing in JWT          |
-| Authentication failed: property 'exp' (expiration time) missing in JWT  |
-| Authentication failed: incorrect signature                              |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Authentication failed: JWT Token missing.                                         |
+| Authentication failed: Malformed JWT Token.                                       |
+| Authentication failed: Expired JWT Token.                                         |
+| Authentication failed: Invalid workspace.                                         |
+| Authentication failed: Invalid organization.                                      |
+| Authentication failed: This application no longer has access to the workspace.   |
+| Authentication failed: The sub field is required. (also `iss` and `exp`)          |
 
 ## 402 Payment Required
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Your account is suspended, please upgrade your account                  |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Your account is suspended, please upgrade your account or contact support@pdfgeneratorapi.com. |
 
 ## 403 Forbidden
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Your account has exceeded the monthly document generation limit.        |
-| Access not granted: You cannot delete master workspace via API          |
-| Access not granted: Template is not accessible by this organization     |
-| Your session has expired, please close and reopen the editor.           |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| You don't have permission to access this content. Please get in touch with your organization administrator to update your access permissions. |
+| This application was not granted permission for this request.                    |
+| Deleting own user is not allowed.                                                 |
+| Deleting organization owner is not allowed.                                       |
 
-## 404 Entity not found
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Entity not found                                                        |
-| Resource not found                                                      |
-| None of the templates is available for the workspace.                   |
+## 404 Not Found
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Entity not found.                                                                 |
+| Route not found.                                                                  |
+| Workspace doesn’t have access to read the template.                               |
 
 ## 422 Unprocessable Entity
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| Unable to parse JSON, please check formatting                           |
-| Required parameter missing                                              |
-| Required parameter missing: template definition not defined             |
-| Required parameter missing: template not defined                        |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Unable to parse JSON, please check formatting.                                    |
+| Template id should be a numeric value.                                            |
+| The per page must be at least 1. (with `errors.per_page`)                         |
 
 ## 429 Too Many Requests
-| Description                                                             |
-|-------------------------------------------------------------------------|
-| You can make up to 2 requests per second and 60 requests per minute.   |
+| Description                                                                       |
+|-----------------------------------------------------------------------------------|
+| Per-second rate limit exceeded. Please slow down your requests.                   |
+| Per-minute rate limit exceeded. Please try again in a minute.                     |
+| Global per-second rate limit exceeded. Please slow down your requests.            |
+| Global per-minute rate limit exceeded. Please try again in a minute.              |
 
 *  *  *  *  *
 
@@ -325,6 +343,7 @@ Class | Method | HTTP request | Description
 *EInvoicesApi* | [**createFacturXEInvoice**](docs/Api/EInvoicesApi.md#createfacturxeinvoice) | **POST** /einvoice/facturx | Create Factur-X eInvoice
 *EInvoicesApi* | [**createXRechnungEInvoice**](docs/Api/EInvoicesApi.md#createxrechnungeinvoice) | **POST** /einvoice/xrechnung | Create XRechnung eInvoice
 *EInvoicesApi* | [**getEInvoiceSchema**](docs/Api/EInvoicesApi.md#geteinvoiceschema) | **GET** /einvoice/schema | Get schema
+*FontsApi* | [**getFonts**](docs/Api/FontsApi.md#getfonts) | **GET** /fonts | Get fonts
 *FormsApi* | [**createForm**](docs/Api/FormsApi.md#createform) | **POST** /forms | Create form
 *FormsApi* | [**deleteForm**](docs/Api/FormsApi.md#deleteform) | **DELETE** /forms/{formId} | Delete form
 *FormsApi* | [**getForm**](docs/Api/FormsApi.md#getform) | **GET** /forms/{formId} | Get form
@@ -370,8 +389,8 @@ Class | Method | HTTP request | Description
 - [AccessibilityOption](docs/Model/AccessibilityOption.md)
 - [AddWatermarkRequest](docs/Model/AddWatermarkRequest.md)
 - [AsyncOutputParam](docs/Model/AsyncOutputParam.md)
+- [AttachmentsParamInner](docs/Model/AttachmentsParamInner.md)
 - [CallbackParam](docs/Model/CallbackParam.md)
-- [Component](docs/Model/Component.md)
 - [ConvertHTML2PDFRequest](docs/Model/ConvertHTML2PDFRequest.md)
 - [ConvertPDF2ImageRequest](docs/Model/ConvertPDF2ImageRequest.md)
 - [ConvertURL2PDFRequest](docs/Model/ConvertURL2PDFRequest.md)
@@ -379,19 +398,23 @@ Class | Method | HTTP request | Description
 - [CreateEInvoiceRequest](docs/Model/CreateEInvoiceRequest.md)
 - [CreateFacturXEInvoiceRequest](docs/Model/CreateFacturXEInvoiceRequest.md)
 - [CreateFacturXEInvoiceRequestTemplate](docs/Model/CreateFacturXEInvoiceRequestTemplate.md)
+- [CreateFacturXEInvoiceRequestTemplateId](docs/Model/CreateFacturXEInvoiceRequestTemplateId.md)
 - [CreateWorkspaceRequest](docs/Model/CreateWorkspaceRequest.md)
-- [DataBatchInner](docs/Model/DataBatchInner.md)
+- [CreateXRechnungEInvoiceRequest](docs/Model/CreateXRechnungEInvoiceRequest.md)
 - [Document](docs/Model/Document.md)
 - [DocumentAction](docs/Model/DocumentAction.md)
 - [DocumentSignature](docs/Model/DocumentSignature.md)
 - [DocumentSignatures](docs/Model/DocumentSignatures.md)
 - [DocumentUser](docs/Model/DocumentUser.md)
 - [DocumentVersion](docs/Model/DocumentVersion.md)
+- [EInvoiceType](docs/Model/EInvoiceType.md)
 - [EncryptAndDecryptBase64](docs/Model/EncryptAndDecryptBase64.md)
 - [EncryptAndDecryptUrl](docs/Model/EncryptAndDecryptUrl.md)
 - [EncryptDocumentRequest](docs/Model/EncryptDocumentRequest.md)
+- [Error](docs/Model/Error.md)
 - [ExtractFormFieldsRequest](docs/Model/ExtractFormFieldsRequest.md)
 - [FillFormFieldsRequest](docs/Model/FillFormFieldsRequest.md)
+- [Font](docs/Model/Font.md)
 - [FormActionDownload](docs/Model/FormActionDownload.md)
 - [FormActionSend](docs/Model/FormActionSend.md)
 - [FormActionSendSendDocument](docs/Model/FormActionSendSendDocument.md)
@@ -415,15 +438,18 @@ Class | Method | HTTP request | Description
 - [GenerateDocumentBatchAsynchronousRequest](docs/Model/GenerateDocumentBatchAsynchronousRequest.md)
 - [GenerateDocumentBatchRequest](docs/Model/GenerateDocumentBatchRequest.md)
 - [GenerateDocumentRequest](docs/Model/GenerateDocumentRequest.md)
-- [GenerateQRCode201Response](docs/Model/GenerateQRCode201Response.md)
-- [GenerateQRCode201ResponseMeta](docs/Model/GenerateQRCode201ResponseMeta.md)
+- [GenerateQRCode200Response](docs/Model/GenerateQRCode200Response.md)
+- [GenerateQRCode200ResponseMeta](docs/Model/GenerateQRCode200ResponseMeta.md)
 - [GenerateQRCodeRequest](docs/Model/GenerateQRCodeRequest.md)
 - [GenerateViewerUrl200Response](docs/Model/GenerateViewerUrl200Response.md)
 - [GenerateViewerUrl200ResponseMeta](docs/Model/GenerateViewerUrl200ResponseMeta.md)
 - [GenerateViewerUrlRequest](docs/Model/GenerateViewerUrlRequest.md)
+- [GetEInvoiceSchema200Response](docs/Model/GetEInvoiceSchema200Response.md)
+- [GetFonts200Response](docs/Model/GetFonts200Response.md)
+- [GetFormSchema200Response](docs/Model/GetFormSchema200Response.md)
 - [GetStatus200Response](docs/Model/GetStatus200Response.md)
 - [GetTemplateLibrary200Response](docs/Model/GetTemplateLibrary200Response.md)
-- [GetTemplateVersion422Response](docs/Model/GetTemplateVersion422Response.md)
+- [GetTemplateSchema200Response](docs/Model/GetTemplateSchema200Response.md)
 - [ImportFormBase64](docs/Model/ImportFormBase64.md)
 - [ImportFormRequest](docs/Model/ImportFormRequest.md)
 - [ImportFormUrl](docs/Model/ImportFormUrl.md)
@@ -437,14 +463,14 @@ Class | Method | HTTP request | Description
 - [InlineObject10Meta](docs/Model/InlineObject10Meta.md)
 - [InlineObject11](docs/Model/InlineObject11.md)
 - [InlineObject11Meta](docs/Model/InlineObject11Meta.md)
+- [InlineObject11MetaStats](docs/Model/InlineObject11MetaStats.md)
 - [InlineObject12](docs/Model/InlineObject12.md)
-- [InlineObject12Meta](docs/Model/InlineObject12Meta.md)
-- [InlineObject12MetaStats](docs/Model/InlineObject12MetaStats.md)
+- [InlineObject12Response](docs/Model/InlineObject12Response.md)
 - [InlineObject13](docs/Model/InlineObject13.md)
+- [InlineObject13ResponseValue](docs/Model/InlineObject13ResponseValue.md)
+- [InlineObject13ResponseValueDefault](docs/Model/InlineObject13ResponseValueDefault.md)
+- [InlineObject13ResponseValueValue](docs/Model/InlineObject13ResponseValueValue.md)
 - [InlineObject14](docs/Model/InlineObject14.md)
-- [InlineObject14ResponseValue](docs/Model/InlineObject14ResponseValue.md)
-- [InlineObject14ResponseValueDefault](docs/Model/InlineObject14ResponseValueDefault.md)
-- [InlineObject14ResponseValueValue](docs/Model/InlineObject14ResponseValueValue.md)
 - [InlineObject15](docs/Model/InlineObject15.md)
 - [InlineObject16](docs/Model/InlineObject16.md)
 - [InlineObject17](docs/Model/InlineObject17.md)
@@ -453,26 +479,17 @@ Class | Method | HTTP request | Description
 - [InlineObject1Response](docs/Model/InlineObject1Response.md)
 - [InlineObject2](docs/Model/InlineObject2.md)
 - [InlineObject20](docs/Model/InlineObject20.md)
+- [InlineObject20Meta](docs/Model/InlineObject20Meta.md)
 - [InlineObject21](docs/Model/InlineObject21.md)
-- [InlineObject21Meta](docs/Model/InlineObject21Meta.md)
 - [InlineObject22](docs/Model/InlineObject22.md)
-- [InlineObject23](docs/Model/InlineObject23.md)
-- [InlineObject23Response](docs/Model/InlineObject23Response.md)
-- [InlineObject24](docs/Model/InlineObject24.md)
-- [InlineObject25](docs/Model/InlineObject25.md)
-- [InlineObject26](docs/Model/InlineObject26.md)
-- [InlineObject27](docs/Model/InlineObject27.md)
-- [InlineObject28](docs/Model/InlineObject28.md)
-- [InlineObject29](docs/Model/InlineObject29.md)
+- [InlineObject22Response](docs/Model/InlineObject22Response.md)
 - [InlineObject3](docs/Model/InlineObject3.md)
-- [InlineObject30](docs/Model/InlineObject30.md)
-- [InlineObject31](docs/Model/InlineObject31.md)
 - [InlineObject4](docs/Model/InlineObject4.md)
 - [InlineObject5](docs/Model/InlineObject5.md)
 - [InlineObject6](docs/Model/InlineObject6.md)
 - [InlineObject7](docs/Model/InlineObject7.md)
-- [InlineObject7Response](docs/Model/InlineObject7Response.md)
 - [InlineObject8](docs/Model/InlineObject8.md)
+- [InlineObject8Meta](docs/Model/InlineObject8Meta.md)
 - [InlineObject9](docs/Model/InlineObject9.md)
 - [InlineObject9Meta](docs/Model/InlineObject9Meta.md)
 - [InlineObjectMeta](docs/Model/InlineObjectMeta.md)
@@ -495,8 +512,6 @@ Class | Method | HTTP request | Description
 - [StoreDocumentRequest](docs/Model/StoreDocumentRequest.md)
 - [Template](docs/Model/Template.md)
 - [TemplateDefinition](docs/Model/TemplateDefinition.md)
-- [TemplateDefinitionDataSettings](docs/Model/TemplateDefinitionDataSettings.md)
-- [TemplateDefinitionEditor](docs/Model/TemplateDefinitionEditor.md)
 - [TemplateDefinitionNew](docs/Model/TemplateDefinitionNew.md)
 - [TemplateDefinitionNewDataSettings](docs/Model/TemplateDefinitionNewDataSettings.md)
 - [TemplateDefinitionNewEditor](docs/Model/TemplateDefinitionNewEditor.md)
@@ -504,15 +519,17 @@ Class | Method | HTTP request | Description
 - [TemplateDefinitionNewLayoutMargins](docs/Model/TemplateDefinitionNewLayoutMargins.md)
 - [TemplateDefinitionNewLayoutRepeatLayout](docs/Model/TemplateDefinitionNewLayoutRepeatLayout.md)
 - [TemplateDefinitionNewPagesInner](docs/Model/TemplateDefinitionNewPagesInner.md)
+- [TemplateDefinitionNewPagesInnerLayout](docs/Model/TemplateDefinitionNewPagesInnerLayout.md)
 - [TemplateDefinitionNewPagesInnerMargins](docs/Model/TemplateDefinitionNewPagesInnerMargins.md)
-- [TemplateDefinitionPagesInner](docs/Model/TemplateDefinitionPagesInner.md)
+- [TemplateDefinitionUpdate](docs/Model/TemplateDefinitionUpdate.md)
 - [TemplateParam](docs/Model/TemplateParam.md)
 - [TemplateParamData](docs/Model/TemplateParamData.md)
-- [TemplateParamId](docs/Model/TemplateParamId.md)
 - [TemplateVersion](docs/Model/TemplateVersion.md)
 - [TemplateVersionCollection](docs/Model/TemplateVersionCollection.md)
 - [TemplateVersionCollectionMeta](docs/Model/TemplateVersionCollectionMeta.md)
+- [ValidationError](docs/Model/ValidationError.md)
 - [WatermarkBase64](docs/Model/WatermarkBase64.md)
+- [WatermarkFileUrl](docs/Model/WatermarkFileUrl.md)
 - [WatermarkFileUrlWatermark](docs/Model/WatermarkFileUrlWatermark.md)
 - [WatermarkImage](docs/Model/WatermarkImage.md)
 - [WatermarkImageContentBase64](docs/Model/WatermarkImageContentBase64.md)
@@ -545,7 +562,7 @@ support@pdfgeneratorapi.com
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `4.0.31`
-    - Package version: `8.0.31`
+- API version: `4.0.34`
+    - Package version: `8.0.34`
     - Generator version: `7.14.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

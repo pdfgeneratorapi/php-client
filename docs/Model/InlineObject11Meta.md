@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **display_name** | **string** | Document name without the file extension. | [optional]
 **encoding** | **string** | Document encoding | [optional]
 **content_type** | **string** | Document content type. | [optional]
-**public_id** | **string** | Document public id | [optional]
+**stats** | [**\PDFGeneratorAPI\Model\InlineObject11MetaStats**](InlineObject11MetaStats.md) |  | [optional]
+**public_id** | **string** | Document public id, if output&#x3D;url was used for document storage | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

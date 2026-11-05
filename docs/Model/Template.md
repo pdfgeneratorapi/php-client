@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **created_at** | **string** | Timestamp when the template was created | [optional]
 **updated_at** | **string** | Timestamp when the template was updated | [optional]
 **tags** | **string[]** | A list of tags assigned to a template | [optional]
+**is_draft** | **bool** | True if the template is a draft | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -20,7 +20,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `copyTemplate()`
 
 ```php
-copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\InlineObject19
+copyTemplate($template_id, $copy_template_request): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Copy template
@@ -64,7 +64,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ try {
 ## `createTemplate()`
 
 ```php
-createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject19
+createTemplate($template_definition_new): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Create template
@@ -124,7 +124,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ void (empty response body)
 ## `getTemplate()`
 
 ```php
-getTemplate($template_id): \PDFGeneratorAPI\Model\InlineObject19
+getTemplate($template_id): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Get template
@@ -243,7 +243,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ try {
 ## `getTemplateSchema()`
 
 ```php
-getTemplateSchema(): object
+getTemplateSchema(): \PDFGeneratorAPI\Model\GetTemplateSchema200Response
 ```
 
 Get schema
@@ -335,15 +335,11 @@ Returns Template JSON Schema which defines the structure of the Template Definit
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: JSONWebTokenAuth
-$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -360,11 +356,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+[**\PDFGeneratorAPI\Model\GetTemplateSchema200Response**](../Model/GetTemplateSchema200Response.md)
 
 ### Authorization
 
-[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -378,7 +374,7 @@ This endpoint does not need any parameter.
 ## `getTemplates()`
 
 ```php
-getTemplates($name, $tags, $access, $page, $per_page): \PDFGeneratorAPI\Model\InlineObject4
+getTemplates($name, $tags, $access, $page, $per_page, $order_by, $order_direction, $search): \PDFGeneratorAPI\Model\InlineObject4
 ```
 
 Get templates
@@ -407,9 +403,12 @@ $tags = 'tags_example'; // string | Filter template by tags
 $access = private; // string | Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates.
 $page = 1; // int | Pagination: page to return
 $per_page = 20; // int | Pagination: How many records to return per page
+$order_by = name; // string | Field to sort the templates by. Ignored when `name` or `tags` is set.
+$order_direction = asc; // string | Sort direction. Ignored when `name` or `tags` is set.
+$search = Invoice; // string | Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when `name` or `tags` is set.
 
 try {
-    $result = $apiInstance->getTemplates($name, $tags, $access, $page, $per_page);
+    $result = $apiInstance->getTemplates($name, $tags, $access, $page, $per_page, $order_by, $order_direction, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->getTemplates: ', $e->getMessage(), PHP_EOL;
@@ -425,6 +424,9 @@ try {
 | **access** | **string**| Filter template by access type. No values returns all templates. private - returns only private templates, organization - returns only organization templates. | [optional] [default to &#39;&#39;] |
 | **page** | **int**| Pagination: page to return | [optional] [default to 1] |
 | **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
+| **order_by** | **string**| Field to sort the templates by. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] [default to &#39;updated_at&#39;] |
+| **order_direction** | **string**| Sort direction. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] [default to &#39;desc&#39;] |
+| **search** | **string**| Returns templates whose ID, name, tags, creation date or modification date contains the search value. Ignored when &#x60;name&#x60; or &#x60;tags&#x60; is set. | [optional] |
 
 ### Return type
 
@@ -446,7 +448,7 @@ try {
 ## `importTemplate()`
 
 ```php
-importTemplate($import_template_request): \PDFGeneratorAPI\Model\InlineObject19
+importTemplate($import_template_request): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Import template
@@ -488,7 +490,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -568,12 +570,12 @@ try {
 ## `updateTemplate()`
 
 ```php
-updateTemplate($template_id, $template_definition_new): \PDFGeneratorAPI\Model\InlineObject19
+updateTemplate($template_id, $template_definition_update): \PDFGeneratorAPI\Model\InlineObject18
 ```
 
 Update template
 
-Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component.
+Updates template configuration. Each top-level field sent (name, layout, pages and the rest) replaces the stored one, so pages must be complete, with every component. A field left out keeps its stored value, the name included.
 
 ### Example
 
@@ -593,10 +595,10 @@ $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     $config
 );
 $template_id = 19375; // int | Template unique identifier
-$template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration
+$template_definition_update = new \PDFGeneratorAPI\Model\TemplateDefinitionUpdate(); // \PDFGeneratorAPI\Model\TemplateDefinitionUpdate | The template configuration to change
 
 try {
-    $result = $apiInstance->updateTemplate($template_id, $template_definition_new);
+    $result = $apiInstance->updateTemplate($template_id, $template_definition_update);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
@@ -608,11 +610,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **int**| Template unique identifier | |
-| **template_definition_new** | [**\PDFGeneratorAPI\Model\TemplateDefinitionNew**](../Model/TemplateDefinitionNew.md)| Template configuration | |
+| **template_definition_update** | [**\PDFGeneratorAPI\Model\TemplateDefinitionUpdate**](../Model/TemplateDefinitionUpdate.md)| The template configuration to change | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject19**](../Model/InlineObject19.md)
+[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
 
 ### Authorization
 
@@ -644,15 +646,11 @@ Validates if the provided template configuration matches the template JSON schem
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: JSONWebTokenAuth
-$config = PDFGeneratorAPI\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
 
 $apiInstance = new PDFGeneratorAPI\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 $template_definition_new = new \PDFGeneratorAPI\Model\TemplateDefinitionNew(); // \PDFGeneratorAPI\Model\TemplateDefinitionNew | Template configuration
 
@@ -676,7 +674,7 @@ try {
 
 ### Authorization
 
-[JSONWebTokenAuth](../../README.md#JSONWebTokenAuth)
+No authorization required
 
 ### HTTP request headers
 

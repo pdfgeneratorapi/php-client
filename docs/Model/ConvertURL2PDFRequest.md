@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** | Public URL | [optional]
+**url** | **string** | Public HTTPS URL of an HTML page |
 **paper_size** | **string** | PDF page size | [optional] [default to 'a4']
 **orientation** | **string** |  | [optional] [default to 'portrait']
 **output** | **string** | Output | [optional] [default to 'base64']
-**filename** | **string** | Document name | [optional]
+**filename** | **string** | Document name. Left out, the document gets a generated name. | [optional]
 **wait_for_css** | **string** | CSS selector of an element to wait for before the page is printed; see &#x60;wait_for_css_state&#x60; | [optional]
 **wait_for_css_state** | **string** | How &#x60;wait_for_css&#x60; matches. &#x60;present&#x60; waits until the element exists, even if it is empty or hidden (e.g. a &#x60;&lt;div id&#x3D;\&quot;report-ready\&quot;&gt;&lt;/div&gt;&#x60; marker); &#x60;visible&#x60; waits until it is also visible with a non-empty size (e.g. a chart that appears when data has loaded). | [optional] [default to 'present']
 **wait_for_js** | **string** | JavaScript expression evaluated in the page every 100ms; the page is printed once it is truthy. Promises are awaited, and an expression that throws counts as not ready yet. | [optional]

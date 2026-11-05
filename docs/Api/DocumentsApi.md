@@ -81,7 +81,7 @@ void (empty response body)
 ## `generateDocument()`
 
 ```php
-generateDocument($generate_document_request): \PDFGeneratorAPI\Model\InlineObject9
+generateDocument($generate_document_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Generate document
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ try {
 ## `generateDocumentAsynchronous()`
 
 ```php
-generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject23
+generateDocumentAsynchronous($generate_document_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Generate document (async)
@@ -183,7 +183,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject23**](../Model/InlineObject23.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ try {
 ## `generateDocumentBatch()`
 
 ```php
-generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\InlineObject9
+generateDocumentBatch($generate_document_batch_request): \PDFGeneratorAPI\Model\InlineObject8
 ```
 
 Generate document (batch)
@@ -243,7 +243,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject9**](../Model/InlineObject9.md)
+[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ try {
 ## `generateDocumentBatchAsynchronous()`
 
 ```php
-generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject23
+generateDocumentBatchAsynchronous($generate_document_batch_asynchronous_request): \PDFGeneratorAPI\Model\InlineObject22
 ```
 
 Generate document (batch + async)
@@ -303,7 +303,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject23**](../Model/InlineObject23.md)
+[**\PDFGeneratorAPI\Model\InlineObject22**](../Model/InlineObject22.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ try {
 ## `getAsyncJobStatus()`
 
 ```php
-getAsyncJobStatus($job_id): \PDFGeneratorAPI\Model\InlineObject13
+getAsyncJobStatus($job_id): \PDFGeneratorAPI\Model\InlineObject12
 ```
 
 Get job status
@@ -425,7 +425,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject13**](../Model/InlineObject13.md)
+[**\PDFGeneratorAPI\Model\InlineObject12**](../Model/InlineObject12.md)
 
 ### Authorization
 
@@ -443,7 +443,7 @@ try {
 ## `getDocument()`
 
 ```php
-getDocument($public_id): \PDFGeneratorAPI\Model\InlineObject11
+getDocument($public_id): \PDFGeneratorAPI\Model\InlineObject10
 ```
 
 Get document
@@ -485,7 +485,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
+[**\PDFGeneratorAPI\Model\InlineObject10**](../Model/InlineObject10.md)
 
 ### Authorization
 
@@ -503,7 +503,7 @@ try {
 ## `getDocumentActions()`
 
 ```php
-getDocumentActions($public_id): \PDFGeneratorAPI\Model\InlineObject18
+getDocumentActions($public_id): \PDFGeneratorAPI\Model\InlineObject17
 ```
 
 Get document actions
@@ -545,7 +545,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject18**](../Model/InlineObject18.md)
+[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
 
 ### Authorization
 
@@ -563,7 +563,7 @@ try {
 ## `getDocumentSignatures()`
 
 ```php
-getDocumentSignatures($public_id, $version): \PDFGeneratorAPI\Model\InlineObject17
+getDocumentSignatures($public_id, $version): \PDFGeneratorAPI\Model\InlineObject16
 ```
 
 Validate document signatures
@@ -607,7 +607,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject17**](../Model/InlineObject17.md)
+[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
 
 ### Authorization
 
@@ -625,7 +625,7 @@ try {
 ## `getDocumentVersions()`
 
 ```php
-getDocumentVersions($public_id): \PDFGeneratorAPI\Model\InlineObject16
+getDocumentVersions($public_id): \PDFGeneratorAPI\Model\InlineObject15
 ```
 
 Get document versions
@@ -667,7 +667,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject16**](../Model/InlineObject16.md)
+[**\PDFGeneratorAPI\Model\InlineObject15**](../Model/InlineObject15.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ try {
 ## `getDocuments()`
 
 ```php
-getDocuments($template_id, $start_date, $end_date, $page, $per_page): \PDFGeneratorAPI\Model\InlineObject15
+getDocuments($template_id, $start_date, $end_date, $page, $per_page, $search, $format): \PDFGeneratorAPI\Model\InlineObject14
 ```
 
 Get documents
@@ -714,9 +714,11 @@ $start_date = 2022-08-01 12:00:00; // string | Start date. Format: Y-m-d H:i:s
 $end_date = 2022-08-05 12:00:00; // string | End date. Format: Y-m-d H:i:s. Defaults to current timestamp
 $page = 1; // int | Pagination: page to return
 $per_page = 20; // int | Pagination: How many records to return per page
+$search = Invoice; // string | Returns documents whose name contains the search value. A numeric value also matches the template ID.
+$format = pdf; // string | Returns only documents in this format
 
 try {
-    $result = $apiInstance->getDocuments($template_id, $start_date, $end_date, $page, $per_page);
+    $result = $apiInstance->getDocuments($template_id, $start_date, $end_date, $page, $per_page, $search, $format);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentsApi->getDocuments: ', $e->getMessage(), PHP_EOL;
@@ -732,10 +734,12 @@ try {
 | **end_date** | **string**| End date. Format: Y-m-d H:i:s. Defaults to current timestamp | [optional] |
 | **page** | **int**| Pagination: page to return | [optional] [default to 1] |
 | **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
+| **search** | **string**| Returns documents whose name contains the search value. A numeric value also matches the template ID. | [optional] |
+| **format** | **string**| Returns only documents in this format | [optional] |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject15**](../Model/InlineObject15.md)
+[**\PDFGeneratorAPI\Model\InlineObject14**](../Model/InlineObject14.md)
 
 ### Authorization
 
@@ -753,7 +757,7 @@ try {
 ## `storeDocument()`
 
 ```php
-storeDocument($store_document_request): \PDFGeneratorAPI\Model\InlineObject11
+storeDocument($store_document_request): \PDFGeneratorAPI\Model\InlineObject10
 ```
 
 Store document
@@ -795,7 +799,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject11**](../Model/InlineObject11.md)
+[**\PDFGeneratorAPI\Model\InlineObject10**](../Model/InlineObject10.md)
 
 ### Authorization
 

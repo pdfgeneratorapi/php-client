@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**response** | [**array<string,\PDFGeneratorAPI\Model\InlineObject14ResponseValue>**](InlineObject14ResponseValue.md) | Form fields extracted from the PDF document | [optional]
+**response** | [**\PDFGeneratorAPI\Model\Document[]**](Document.md) |  | [optional]
+**meta** | [**\PDFGeneratorAPI\Model\PaginationMeta**](PaginationMeta.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -13,7 +13,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `createWorkspace()`
 
 ```php
-createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\InlineObject8
+createWorkspace($create_workspace_request): \PDFGeneratorAPI\Model\InlineObject7
 ```
 
 Create workspace
@@ -51,11 +51,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **create_workspace_request** | [**\PDFGeneratorAPI\Model\CreateWorkspaceRequest**](../Model/CreateWorkspaceRequest.md)|  | [optional] |
+| **create_workspace_request** | [**\PDFGeneratorAPI\Model\CreateWorkspaceRequest**](../Model/CreateWorkspaceRequest.md)|  | |
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
+[**\PDFGeneratorAPI\Model\InlineObject7**](../Model/InlineObject7.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ void (empty response body)
 ## `getWorkspace()`
 
 ```php
-getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\InlineObject8
+getWorkspace($workspace_identifier): \PDFGeneratorAPI\Model\InlineObject7
 ```
 
 Get workspace
@@ -174,7 +174,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\InlineObject8**](../Model/InlineObject8.md)
+[**\PDFGeneratorAPI\Model\InlineObject7**](../Model/InlineObject7.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ try {
 ## `getWorkspaces()`
 
 ```php
-getWorkspaces($page, $per_page): \PDFGeneratorAPI\Model\InlineObject5
+getWorkspaces($page, $per_page, $order_by, $order_direction, $activated, $search): \PDFGeneratorAPI\Model\InlineObject5
 ```
 
 Get workspaces
@@ -218,9 +218,13 @@ $apiInstance = new PDFGeneratorAPI\Api\WorkspacesApi(
 );
 $page = 1; // int | Pagination: page to return
 $per_page = 20; // int | Pagination: How many records to return per page
+$order_by = identifier; // string | Field to sort the workspaces by
+$order_direction = asc; // string | Sort direction
+$activated = 1; // int | Returns only active (`1`) or deactivated (`0`) workspaces
+$search = demo.example; // string | Returns workspaces whose ID, name or identifier contains the search value
 
 try {
-    $result = $apiInstance->getWorkspaces($page, $per_page);
+    $result = $apiInstance->getWorkspaces($page, $per_page, $order_by, $order_direction, $activated, $search);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WorkspacesApi->getWorkspaces: ', $e->getMessage(), PHP_EOL;
@@ -233,6 +237,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| Pagination: page to return | [optional] [default to 1] |
 | **per_page** | **int**| Pagination: How many records to return per page | [optional] [default to 15] |
+| **order_by** | **string**| Field to sort the workspaces by | [optional] [default to &#39;id&#39;] |
+| **order_direction** | **string**| Sort direction | [optional] [default to &#39;desc&#39;] |
+| **activated** | **int**| Returns only active (&#x60;1&#x60;) or deactivated (&#x60;0&#x60;) workspaces | [optional] |
+| **search** | **string**| Returns workspaces whose ID, name or identifier contains the search value | [optional] |
 
 ### Return type
 

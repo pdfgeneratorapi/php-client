@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**\PDFGeneratorAPI\Model\TemplateParamId**](TemplateParamId.md) |  | [optional]
+**id** | [**\PDFGeneratorAPI\Model\CreateFacturXEInvoiceRequestTemplateId**](CreateFacturXEInvoiceRequestTemplateId.md) |  | [optional]
 **version_id** | **int** | Template version ID | [optional]
 **data** | [**\PDFGeneratorAPI\Model\TemplateParamData**](TemplateParamData.md) |  | [optional]
 

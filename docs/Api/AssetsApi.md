@@ -10,7 +10,7 @@ All URIs are relative to https://us1.pdfgeneratorapi.com/api/v4, except if the o
 ## `generateQRCode()`
 
 ```php
-generateQRCode($generate_qr_code_request): \PDFGeneratorAPI\Model\GenerateQRCode201Response
+generateQRCode($generate_qr_code_request): \SplFileObject
 ```
 
 Generate QR Code
@@ -52,7 +52,7 @@ try {
 
 ### Return type
 
-[**\PDFGeneratorAPI\Model\GenerateQRCode201Response**](../Model/GenerateQRCode201Response.md)
+**\SplFileObject**
 
 ### Authorization
 
@@ -61,7 +61,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: `image/png`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
